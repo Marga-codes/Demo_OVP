@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>OVP Management Consulting Group — App Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+  :root{
+    --surface:#fcf9f8;
+    --surface-subtle:#f6f3f2;
+    --surface-card:#ffffff;
+    --on-surface:#1b1b1b;
+    --on-surface-variant:#48514b;
+    --muted:#848484;
+    --primary:#016e00;
+    --primary-bright:#00b700;
+    --on-primary:#ffffff;
+    --secondary:#006879;
+    --secondary-bright:#7ae3fc;
+    --border:#e5e7eb;
+    --border-strong:#d5dad6;
+    --radius-sm:0.25rem;
+    --radius-md:0.5rem;
+    --radius-lg:0.75rem;
+    --radius-full:9999px;
+    --shadow-soft:0 4px 20px rgba(0,0,0,0.04);
+    --shadow-card:0 1px 2px rgba(27,33,25,0.04), 0 8px 24px -16px rgba(27,33,25,0.12);
+    --display:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--body);
+    background:var(--surface);
+    color:var(--on-surface);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  ::selection{background:var(--primary-bright);color:#fff;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .mat{font-family:'Material Icons';font-weight:normal;font-style:normal;display:inline-block;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:'liga';font-feature-settings:'liga';-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 24px;}
+  @media(max-width:640px){.wrap{padding:0 16px;}}
+
+  /* ---------- disclosure ribbon ---------- */
+  .ribbon{
+    background:#12160f;color:#e7ebe3;text-align:center;
+    padding:9px 16px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+  }
+
+  /* ---------- top app bar ---------- */
+  .appbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(252,249,248,0.82);
+    backdrop-filter:blur(14px) saturate(140%);
+    -webkit-backdrop-filter:blur(14px) saturate(140%);
+    border-bottom:1px solid var(--border);
+  }
+  .appbar-inner{display:flex;align-items:center;gap:24px;height:72px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand img{height:34px;width:auto;object-fit:contain;}
+  .brand .divider{width:1px;height:22px;background:var(--border-strong);}
+  .brand .tag{font-size:13px;font-weight:600;color:var(--on-surface-variant);letter-spacing:-0.01em;}
+  .nav{display:flex;align-items:center;gap:4px;margin-left:8px;}
+  .nav a{
+    font-size:13px;font-weight:500;color:#5a645d;
+    padding:8px 13px;border-radius:var(--radius-full);
+    transition:color .15s ease,background .15s ease;
+  }
+  .nav a:hover{color:var(--primary);background:rgba(0,183,0,0.06);}
+  .appbar-actions{margin-left:auto;display:flex;align-items:center;gap:10px;}
+  .icon-btn{
+    width:40px;height:40px;display:grid;place-items:center;border-radius:var(--radius-md);
+    color:#5a645d;border:1px solid transparent;transition:all .15s ease;cursor:pointer;background:none;
+  }
+  .icon-btn:hover{background:var(--surface-subtle);color:var(--on-surface);border-color:var(--border);}
+  .icon-btn .mat{font-size:21px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:var(--body);font-size:13px;font-weight:600;letter-spacing:0.02em;
+    border-radius:var(--radius-full);padding:10px 18px;cursor:pointer;
+    border:1px solid transparent;transition:all .18s ease;white-space:nowrap;
+  }
+  .btn-primary{background:var(--primary-bright);color:#fff;}
+  .btn-primary:hover{background:var(--primary);box-shadow:0 6px 18px -6px rgba(0,183,0,0.5);}
+  .btn-ghost{background:transparent;color:var(--on-surface);border-color:var(--border-strong);}
+  .btn-ghost:hover{border-color:var(--primary-bright);color:var(--primary);}
+  .burger{display:none;}
+
+  @media(max-width:900px){
+    .nav{display:none;}
+    .burger{display:grid;}
+  }
+  /* mobile drawer */
+  .drawer{
+    position:fixed;inset:0;z-index:60;display:none;
+  }
+  .drawer.open{display:block;}
+  .drawer-backdrop{position:absolute;inset:0;background:rgba(27,33,25,0.35);backdrop-filter:blur(2px);}
+  .drawer-panel{
+    position:absolute;top:0;right:0;bottom:0;width:min(320px,86vw);
+    background:var(--surface-card);box-shadow:-16px 0 40px rgba(0,0,0,0.12);
+    padding:24px;display:flex;flex-direction:column;gap:6px;
+  }
+  .drawer-panel .nav-mobile{display:flex;flex-direction:column;margin-top:20px;}
+  .drawer-panel .nav-mobile a{padding:13px 12px;border-radius:var(--radius-md);font-weight:500;color:var(--on-surface-variant);}
+  .drawer-panel .nav-mobile a:hover{background:var(--surface-subtle);color:var(--primary);}
+  .drawer-foot{margin-top:auto;display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--border);padding-top:18px;}
+  .lift{transition:transform .2s ease,box-shadow .2s ease;}
+  .lift:hover{transform:translateY(-2px);box-shadow:var(--shadow-card);}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;background:#0f1a11;}
+  .hero video{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  }
+  .hero-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .hero-shade{
+    position:absolute;inset:0;
+    background:
+      linear-gradient(180deg,rgba(15,26,17,0.55) 0%,rgba(15,26,17,0.35) 40%,rgba(15,26,17,0.82) 100%),
+      radial-gradient(120% 90% at 20% 20%,rgba(0,183,0,0.22),transparent 55%);
+  }
+  .hero-inner{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:96px 24px 120px;min-height:600px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;}
+  .hero-chip{
+    display:inline-flex;align-items:center;gap:8px;align-self:flex-start;
+    background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);
+    backdrop-filter:blur(6px);padding:7px 14px;border-radius:var(--radius-full);
+    font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:#eaf7ea;
+  }
+  .hero-chip .dot{width:7px;height:7px;border-radius:50%;background:var(--primary-bright);box-shadow:0 0 0 3px rgba(0,183,0,0.25);}
+  .overline{
+    margin-top:26px;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;
+    color:var(--secondary-bright);
+  }
+  .hero h1{
+    font-family:var(--display);font-weight:300;letter-spacing:-0.02em;
+    font-size:clamp(34px,5vw,56px);line-height:1.08;max-width:16ch;margin-top:14px;text-wrap:balance;
+  }
+  .hero h1 em{font-style:italic;font-weight:400;color:var(--primary-bright);}
+  .hero-sub{font-size:18px;line-height:1.65;color:#e3ede3;max-width:52ch;margin-top:20px;font-weight:300;}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;}
+  .hero-cta .btn-primary{background:#fff;color:#0f1a11;}
+  .hero-cta .btn-primary:hover{background:var(--primary-bright);color:#fff;}
+  .hero-cta .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,0.45);}
+  .hero-cta .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
+  .hero-kpis{
+    display:flex;flex-wrap:wrap;gap:28px;margin-top:44px;padding-top:22px;
+    border-top:1px solid rgba(255,255,255,0.16);
+  }
+  .kpi .v{font-family:var(--display);font-size:22px;font-weight:400;color:#fff;}
+  .kpi .l{font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#a9c4ab;margin-top:2px;}
+
+  /* ---------- trust strip ---------- */
+  .trust{border-bottom:1px solid var(--border);background:var(--surface-card);}
+  .trust-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:18px 44px;padding:20px 16px;}
+  .trust .lbl{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+  .trust .client{font-size:13.5px;font-weight:600;color:var(--on-surface-variant);opacity:.72;letter-spacing:-0.01em;white-space:nowrap;}
+
+  /* ---------- section heads ---------- */
+  .sec{padding:88px 0;}
+  .sec-head{max-width:760px;margin:0 auto 52px;text-align:center;}
+  .sec-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--primary);}
+  .sec-eyebrow::before,.sec-eyebrow::after{content:"";width:22px;height:1px;background:var(--primary-bright);opacity:.5;}
+  .sec-head h2{font-family:var(--display);font-weight:400;font-size:clamp(26px,3.4vw,38px);letter-spacing:-0.02em;line-height:1.12;margin-top:12px;text-wrap:balance;}
+  .sec-head p{color:var(--muted);font-size:16px;margin-top:14px;}
+
+  /* ---------- capability pillars ---------- */
+  .pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  @media(max-width:820px){.pillars{grid-template-columns:1fr;}}
+  .pillar{
+    position:relative;background:var(--surface-card);border:1px solid var(--border);
+    border-radius:var(--radius-lg);padding:30px;overflow:hidden;
+    transition:border-color .2s ease,box-shadow .2s ease;
+  }
+  .pillar:hover{border-color:var(--primary-bright);box-shadow:var(--shadow-card);}
+  .pillar .num{position:absolute;top:22px;right:26px;font-family:var(--display);font-size:52px;font-weight:300;color:var(--border);line-height:1;}
+  .pillar .ico{
+    width:48px;height:48px;border-radius:var(--radius-md);display:grid;place-items:center;
+    background:var(--surface-subtle);color:var(--primary);margin-bottom:22px;border:1px solid var(--border);
+  }
+  .pillar .ico .mat{font-size:25px;}
+  .pillar h3{font-family:var(--display);font-weight:500;font-size:21px;letter-spacing:-0.01em;margin-bottom:9px;}
+  .pillar p{color:var(--muted);font-size:15px;line-height:1.7;}
+  .pillar .tag{display:inline-block;margin-top:18px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--secondary);}
+
+  /* ---------- public sector ---------- */
+  .public{background:var(--surface-subtle);border-block:1px solid var(--border);}
+  .public-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;}
+  @media(max-width:820px){.public-grid{grid-template-columns:1fr;gap:32px;}}
+  .public h2{font-family:var(--display);font-weight:400;font-size:clamp(26px,3.2vw,34px);letter-spacing:-0.02em;line-height:1.14;}
+  .public .lead{color:var(--on-surface-variant);font-size:16.5px;line-height:1.7;margin-top:18px;}
+  .badges{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
+  .badge{
+    display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:var(--radius-full);
+    background:var(--surface-card);border:1px solid var(--border);font-size:13px;font-weight:600;color:var(--on-surface-variant);
+  }
+  .badge .pdot{width:8px;height:8px;border-radius:50%;background:var(--muted);}
+  .badge .pdot.amber{background:#f5a623;}
+  .public-card{
+    background:var(--surface-card);border:1px solid var(--border);border-radius:var(--radius-lg);
+    padding:26px;box-shadow:var(--shadow-soft);
+  }
+  .public-card .row{display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--border);padding:14px 0;}
+  .public-card .row:first-child{padding-top:0;}
+  .public-card .row:last-child{border-bottom:0;padding-bottom:0;}
+  .public-card .row .mat{font-size:22px;color:var(--secondary);}
+  .public-card .row b{display:block;font-size:14.5px;font-weight:600;}
+  .public-card .row span{font-size:13px;color:var(--muted);}
+
+  /* ---------- leadership ---------- */
+  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  @media(max-width:820px){.team{grid-template-columns:1fr;gap:36px;}}
+  .member{text-align:center;}
+  .member .shot{
+    position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/5;
+    background:var(--surface-subtle);border:1px solid var(--border);margin-bottom:18px;
+  }
+  .member .shot img{width:100%;height:100%;object-fit:cover;filter:grayscale(1);transition:filter .5s ease,transform .5s ease;}
+  .member:hover .shot img{filter:grayscale(0);transform:scale(1.02);}
+  .member h3{font-family:var(--display);font-size:19px;font-weight:600;letter-spacing:-0.01em;}
+  .member .role{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:5px;}
+
+  /* ---------- testimonial ---------- */
+  .quote{background:var(--surface-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:clamp(32px,5vw,60px);box-shadow:var(--shadow-card);position:relative;overflow:hidden;text-align:center;}
+  .quote .qmark{font-family:var(--display);font-size:110px;line-height:1;color:rgba(0,183,0,0.12);position:absolute;top:-8px;left:28px;}
+  .quote blockquote{font-family:var(--display);font-weight:300;font-size:clamp(19px,2.4vw,24px);line-height:1.5;letter-spacing:-0.01em;max-width:56ch;margin:8px auto 0;}
+  .quote .by{margin-top:26px;}
+  .quote .by b{display:block;font-size:15px;font-weight:600;}
+  .quote .by span{font-size:12.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);}
+
+  /* ---------- secure band ---------- */
+  .secure{border-top:1px solid var(--border);background:var(--surface-subtle);}
+  .secure-inner{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 40px;padding:20px 16px;}
+  .secure span{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:0.05em;color:var(--muted);}
+  .secure .mat{font-size:18px;color:var(--primary);}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--surface-subtle);border-top:1px solid var(--border);padding:72px 0 40px;}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px;}
+  @media(max-width:820px){.foot-grid{grid-template-columns:1fr 1fr;}}
+  .foot-brand img{height:34px;width:auto;object-fit:contain;margin-bottom:16px;}
+  .foot-brand p{color:var(--muted);font-size:14px;max-width:30ch;}
+  .foot h4{font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--on-surface);margin-bottom:16px;}
+  .foot ul{list-style:none;display:flex;flex-direction:column;gap:12px;}
+  .foot a{color:var(--muted);font-size:14px;transition:color .15s ease;}
+  .foot a:hover{color:var(--primary);}
+  .foot .btn{margin-top:6px;}
+  .foot-bottom{margin-top:48px;padding-top:22px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;color:var(--muted);font-size:13.5px;}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  .hero-inner>*{animation:fadeUp .7s ease both;}
+  .hero-inner>*:nth-child(2){animation-delay:.08s}
+  .hero-inner>*:nth-child(3){animation-delay:.16s}
+  .hero-inner>*:nth-child(4){animation-delay:.24s}
+</style>
+</head>
+<body>
+
+<!-- disclosure ribbon -->
+<div class="ribbon">Concept demo · Real OVP copy &amp; brand assets · Executive Precision Theme</div>
+
+<!-- top app bar -->
+<header class="appbar" id="top">
+  <div class="wrap appbar-inner">
+    <div class="brand">
+      <img src="assets/OVP_logo-new-color.png" alt="OVP Management Consulting Group logo"/>
+      <span class="divider"></span>
+      <span class="tag">Management Consulting Group</span>
+    </div>
+    <nav class="nav" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#public-sector">Public Sector</a>
+      <a href="#insights">Insights</a>
+      <a href="#careers">Careers</a>
+    </nav>
+    <div class="appbar-actions">
+      <button class="icon-btn" aria-label="Search"><span class="mat">search</span></button>
+      <button class="icon-btn" aria-label="Notifications"><span class="mat">notifications_none</span></button>
+      <a class="btn btn-primary" href="#contact">Get in Touch</a>
+      <button class="icon-btn burger" id="burger" aria-label="Menu"><span class="mat">menu</span></button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile drawer -->
+<div class="drawer" id="drawer">
+  <div class="drawer-backdrop" data-close></div>
+  <div class="drawer-panel">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <img src="assets/OVP_logo-new-color.png" alt="OVP" style="height:30px;width:auto;"/>
+      <button class="icon-btn" data-close aria-label="Close"><span class="mat">close</span></button>
+    </div>
+    <nav class="nav-mobile">
+      <a href="#services" data-close>Services</a>
+      <a href="#expertise" data-close>Expertise</a>
+      <a href="#public-sector" data-close>Public Sector</a>
+      <a href="#insights" data-close>Insights</a>
+      <a href="#careers" data-close>Careers</a>
+    </nav>
+    <div class="drawer-foot">
+      <a class="btn btn-primary" href="#contact">Get in Touch</a>
+    </div>
+  </div>
+</div>
+
+<main>
+  <!-- HERO with video -->
+  <section class="hero" id="insights">
+    <video autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg" aria-label="OVP team at work">
+      <source src="assets/hero-video.mp4" type="video/mp4"/>
+    </video>
+    <img class="hero-poster" src="assets/hero-poster.jpg" alt="" aria-hidden="true" style="display:none"/>
+    <div class="hero-shade"></div>
+    <div class="hero-inner">
+      <span class="hero-chip"><span class="dot"></span> A Strengths-Based Consulting Firm</span>
+      <p class="overline">Public Sector · Enterprise · Partnerships</p>
+      <h1>Your business has something <em>valuable</em> to offer.</h1>
+      <p class="hero-sub">Our leadership coaching and consulting services can help you find the best way to share it. Next-Level Consulting for Sustainable Success.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contact">Get in Touch</a>
+        <a class="btn btn-outline" href="#services">Explore Our Services</a>
+      </div>
+      <div class="hero-kpis">
+        <div class="kpi"><div class="v">Senior Partner–Led</div><div class="l">Boutique Practice</div></div>
+        <div class="kpi"><div class="v">NAICS Pending</div><div class="l">Code Registration</div></div>
+        <div class="kpi"><div class="v">GSA Schedule Pending</div><div class="l">Federal Readiness</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- trust strip -->
+  <section class="trust">
+    <div class="trust-inner">
+      <span class="lbl">Selected engagements</span>
+      <span class="client">Delaware Department of Labor</span>
+      <span class="client">34 Strong</span>
+      <span class="client">PASO</span>
+      <span class="client">Illinois Action for Children</span>
+      <span class="client">National Coalition of 100 Black Women</span>
+    </div>
+  </section>
+
+  <!-- capability pillars -->
+  <section class="sec" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-eyebrow">Services</span>
+        <h2>Capability Pillars</h2>
+        <p>Rigorous methodologies applied across key organizational domains.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar lift">
+          <span class="num">01</span>
+          <div class="ico"><span class="mat">forum</span></div>
+          <h3>Strategic Communication</h3>
+          <p>Set the right tone and increase positive engagements with customers and collaborators alike. Our strategic communications services can help generate measurable results for organizations, while broadening your team's impact.</p>
+          <span class="tag">Tone &amp; Engagement</span>
+        </div>
+        <div class="pillar lift">
+          <span class="num">02</span>
+          <div class="ico"><span class="mat">diversity_3</span></div>
+          <h3>Leadership &amp; Change / Team Engagement</h3>
+          <p>Establish appropriate workplace norms that uncover your teams' talents, maximize the organization's potential and promote performance improvement. We use strengths-based methods to help shape winning team culture.</p>
+          <span class="tag">Strengths-Based</span>
+        </div>
+        <div class="pillar lift">
+          <span class="num">03</span>
+          <div class="ico"><span class="mat">query_stats</span></div>
+          <h3>Organizational Performance / Improvement Methods</h3>
+          <p>Improve current practices and craft new ones to ensure longevity of success. We use Continuous Improvement Process Design methods to evaluate processes and make recommendations for a reliable long-term payoff.</p>
+          <span class="tag">Continuous Improvement</span>
+        </div>
+        <div class="pillar lift">
+          <span class="num">04</span>
+          <div class="ico"><span class="mat">account_tree</span></div>
+          <h3>Strategy &amp; Execution</h3>
+          <p>Aligning long-term vision with operational realities for measurable outcomes.</p>
+          <span class="tag">Vision to Execution</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- public sector -->
+  <section class="public sec" id="public-sector">
+    <div class="wrap public-grid">
+      <div>
+        <span class="sec-eyebrow" style="justify-content:flex-start;">Public Sector</span>
+        <h2>Built for Public-Sector &amp; Strategic Partners</h2>
+        <p class="lead">We understand the rigor required for government and enterprise contracts. Our firm is structured to meet compliance standards and deliver high-impact results within complex organizational frameworks.</p>
+        <div class="badges">
+          <span class="badge"><span class="pdot amber"></span> NAICS Pending</span>
+          <span class="badge"><span class="pdot amber"></span> GSA Schedule Pending</span>
+        </div>
+      </div>
+      <div class="public-card">
+        <div class="row">
+          <span class="mat">verified_user</span>
+          <div><b>Government-Ready Compliance</b><span>Structured to meet federal and enterprise standards.</span></div>
+        </div>
+        <div class="row">
+          <span class="mat">groups</span>
+          <div><b>Senior Partner–Led</b><span>Direct guidance from seasoned consulting veterans.</span></div>
+        </div>
+        <div class="row">
+          <span class="mat">shield</span>
+          <div><b>Secure &amp; Trusted</b><span>HTTPS-secured, hosted checkout, cookie consent manager.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- leadership -->
+  <section class="sec" id="expertise">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-eyebrow">Who We Are</span>
+        <h2>Senior partners, not delegated diagnosis</h2>
+        <p>The leadership behind our strengths-based consulting practice.</p>
+      </div>
+      <div class="team">
+        <div class="member">
+          <div class="shot"><img src="assets/ABMDarrenNicholspodcastphoto_2019.jpg" alt="Alejandro Bodipo-Memba, CEO &amp; Founder"/></div>
+          <h3>Alejandro Bodipo-Memba</h3>
+          <div class="role">CEO &amp; Founder</div>
+        </div>
+        <div class="member">
+          <div class="shot"><img src="assets/EbonyTran.png" alt="Ebony Tran, Chief of Staff &amp; Operations"/></div>
+          <h3>Ebony Tran</h3>
+          <div class="role">Chief of Staff &amp; Operations</div>
+        </div>
+        <div class="member">
+          <div class="shot"><img src="assets/AlPachaphoto2025.webp" alt="Al Pacha, Director of Information Technology"/></div>
+          <h3>Al Pacha</h3>
+          <div class="role">Director of Information Technology</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- testimonial -->
+  <section class="sec" id="careers" style="padding-top:0;">
+    <div class="wrap">
+      <div class="quote">
+        <span class="qmark">"</span>
+        <blockquote>"Alejandro and the team at OVP are seasoned veterans, and know how to create meaningful change, build trust, focus on strengths and help to improve employee engagement. They are true professionals and make real lasting impact on their clients."</blockquote>
+        <div class="by"><b>Darren Virassammy</b><span>Co-founder &amp; COO, 34 Strong Inc.</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- secure trust band -->
+<section class="secure">
+  <div class="secure-inner">
+    <span><span class="mat">lock</span> HTTPS Secured</span>
+    <span><span class="mat">verified_user</span> Hosted Checkout</span>
+    <span><span class="mat">cookie</span> Cookie Consent</span>
+  </div>
+</section>
+
+<!-- footer -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/OVP_logo-new-color.png" alt="OVP"/>
+        <p>Management Consulting Group. Leadership coaching and consulting for sustainable success.</p>
+      </div>
+      <div class="foot">
+        <h4>Legal &amp; Compliance</h4>
+        <ul>
+          <li><a href="#public-sector">NAICS Codes</a></li>
+          <li><a href="#public-sector">GSA Schedule</a></li>
+        </ul>
+      </div>
+      <div class="foot">
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Security Compliance</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="foot">
+        <h4>Connect</h4>
+        <a class="btn btn-ghost" href="#contact">Contact Us</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2024 OVP Management Consulting Group. All Rights Reserved.</span>
+      <a href="#top" style="display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:13px;">Back to top <span class="mat" style="font-size:15px">arrow_upward</span></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var burger=document.getElementById('burger');
+    var drawer=document.getElementById('drawer');
+    function openD(){drawer.classList.add('open');document.body.style.overflow='hidden';}
+    function closeD(){drawer.classList.remove('open');document.body.style.overflow='';}
+    burger.addEventListener('click',openD);
+    drawer.querySelectorAll('[data-close]').forEach(function(el){el.addEventListener('click',closeD);});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+  })();
+</script>
+</body>
+</html>
