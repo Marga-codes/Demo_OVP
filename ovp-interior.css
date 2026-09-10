@@ -765,8 +765,8 @@ footer {
 }
 
 @media (max-width: 640px) {
-  .appbar-inner {
-    height: 70px;
+.appbar-inner {
+    height: 60px;
   }
   .nav {
     display: none;
@@ -777,4 +777,39 @@ footer {
   .interior-hero h1 {
     font-size: 28px;
   }
+}
+
+/* ---- Demo 2.0 corporate interior (navy hero system) ---- */
+.interior-hero {
+  background: #081828;
+  border: 1px solid transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.interior-hero h1 {
+  color: #f6f9f4;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.interior-hero .lead {
+  color: #c6cdd8;
+}
+
+.interior-hero .eyebrow {
+  color: #8fda96;
+}
+
+.interior-hero .eyebrow .dot {
+  background: #8fda96;
+  box-shadow: 0 0 0 4px rgba(143, 218, 150, 0.14);
+}
+
+.interior-hero .wrap {
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  padding-left: 24px;
+}
+
+.appbar {
+  border-bottom-color: #e7e5e2;
 }
