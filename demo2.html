@@ -22,7 +22,7 @@
     .btn:active{transform:scale(0.97);}
     .btn-outline{background:#fff;}
     .btn-outline:hover{background:#fff;}
-    .panel{background:#fff;border:1px solid #E7E5E2;border-radius:6px;transition:transform 0.18s ease,border-color 0.18s ease,box-shadow 0.18s ease;}
+    .panel{background:#fff;border:1px solid #E7E5E2;border-radius:8px;transition:transform 0.18s ease,border-color 0.18s ease,box-shadow 0.18s ease;}
     .panel:hover{border-color:#c7cdc3;box-shadow:0 2px 10px rgba(27,33,25,0.06),0 14px 30px -20px rgba(27,33,25,0.18);}
     .panel-hover:hover{transform:translateY(-3px);}
 
@@ -41,38 +41,55 @@
     .d2-status-item span:last-child{font-size:12.5px;font-weight:500;color:var(--on-surface);}
 
     /* Hero */
-    .hero2{position:relative;overflow:hidden;padding:76px 0 56px;border-bottom:1px solid #E7E5E2;background:linear-gradient(180deg,#fdfcfb 0%,#fcf9f8 100%);}
-    .hero2-grid{display:grid;grid-template-columns:1.08fr 0.92fr;gap:56px;align-items:center;position:relative;}
+    .tag-mono{display:inline-block;font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--primary);}
+    .hero2{position:relative;overflow:hidden;padding:clamp(88px,11vw,132px) 0 clamp(72px,8vw,104px);border-bottom:1px solid #E7E5E2;background:#fcf9f8;}
+    .hero2-bg{position:absolute;inset:0;z-index:0;}
+    .hero2-bg img{width:100%;height:100%;object-fit:cover;object-position:center 32%;display:block;}
+    .hero2-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(252,249,248,.98) 0%,rgba(252,249,248,.94) 45%,rgba(255,255,255,.60) 76%,rgba(252,249,248,.22) 100%);}
+    .hero2-grid{position:relative;z-index:1;}
+    .hero2-content{max-width:600px;}
     .hero2 h1{font-size:clamp(34px,4.6vw,54px);font-weight:300;line-height:1.08;letter-spacing:-0.02em;color:var(--on-surface);margin:22px 0 22px;text-wrap:balance;}
-    .hero2 .lead{font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.62;color:var(--on-surface-variant);font-weight:300;max-width:54ch;}
-    .hero2 .lead-flat{font-size:13px;color:var(--muted);line-height:1.6;margin-top:14px;max-width:54ch;}
+    .hero2 .lead{font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.62;color:var(--on-surface-variant);font-weight:300;max-width:56ch;}
+    .hero2 .lead-flat{font-size:13px;color:var(--muted);line-height:1.6;margin-top:14px;max-width:56ch;}
     .hero2-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px;}
-    .hero2-stats{display:flex;flex-wrap:wrap;gap:14px 28px;margin-top:34px;padding-top:22px;border-top:1px solid #E7E5E2;}
+    .hero2-cta .btn{font-family:var(--font-mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;padding:14px 24px;border-radius:2px;}
+    .hero2-cta .btn-primary{background:var(--primary);}
+    .hero2-cta .btn-primary:hover{background:#0b3a24;}
+    .hero2-cta .btn-outline{border-color:#d9d6d2;background:rgba(255,255,255,.72);}
+    .hero2-cta .btn-outline:hover{background:#fff;border-color:var(--primary);color:var(--primary);}
+    .hero2-stats{display:flex;flex-wrap:wrap;gap:14px 28px;margin-top:34px;padding-top:22px;border-top:1px solid #E7E5E2;max-width:600px;}
     .hero2-stats div{display:flex;flex-direction:column;gap:2px;}
     .hero2-stats b{font-family:var(--font-mono);font-size:12px;letter-spacing:0.05em;color:var(--primary);font-weight:600;}
     .hero2-stats span{font-size:11px;color:var(--muted);}
-
-    .hero2-media{position:relative;border-radius:8px;overflow:hidden;border:1px solid #E7E5E2;background:#0b0b0b;box-shadow:0 1px 2px rgba(27,33,25,0.06),0 18px 44px -24px rgba(27,33,25,0.28);}
-    .hero2-media img{width:100%;height:460px;object-fit:cover;object-position:center 28%;display:block;}
-    .hero2-media figcaption{position:absolute;left:10px;right:10px;bottom:10px;background:rgba(255,255,255,0.96);border:1px solid #ececea;border-radius:6px;padding:10px 12px;color:var(--on-surface);}
-    .hero2-media .cap-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--primary);font-weight:600;display:block;margin-bottom:3px;}
-    .hero2-media figcaption b{font-size:12.5px;display:block;}
-    .hero2-media figcaption span{font-size:11px;color:var(--muted);line-height:1.45;display:block;}
+    .hero2-credit{position:absolute;left:24px;bottom:12px;z-index:2;font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9d96;}
 
     /* Section skeleton */
-    .d2-sec{padding:60px 0;border-bottom:1px solid #E7E5E2;}
-    .d2-sec-head{margin-bottom:34px;}
+    .d2-sec{padding:clamp(64px,9vw,120px) 0;border-bottom:1px solid #E7E5E2;}
+    .d2-sec-head{margin-bottom:clamp(28px,4vw,48px);}
     .d2-sec-head h2{font-size:clamp(24px,3vw,34px);font-weight:300;letter-spacing:-0.015em;color:var(--on-surface);margin:10px 0 10px;text-wrap:balance;}
     .d2-sec-head p{color:var(--muted);font-size:14.5px;max-width:60ch;font-weight:300;line-height:1.6;}
 
-    /* Compact logo band */
-    .logo-band{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;}
-    .logo-chip{width:130px;height:44px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #EBE9E6;border-radius:6px;padding:6px 10px;}
-    .logo-chip img{max-height:22px;max-width:100%;object-fit:contain;filter:grayscale(100%);opacity:0.72;}
-    .logo-chip:hover img{filter:grayscale(0);opacity:1;}
+    /* Trust strip / partner logo carousel (shared with demos 1 & 3) */
+    .trust{border-bottom:1px solid var(--border-strong);background:var(--surface-card);padding:6px 0 2px;}
+    .trust-eyebrow{max-width:1240px;margin:0 auto;padding:12px 24px 0;font-family:var(--font-mono);font-size:10.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);}
+    @media(max-width:640px){.trust-eyebrow{padding:12px 16px 0;}}
+    .trust-inner{display:flex;align-items:stretch;}
+    .trust-viewport{flex:1;min-width:0;overflow:hidden;position:relative;}
+    .trust-viewport::before,.trust-viewport::after{content:"";position:absolute;top:0;bottom:0;width:56px;z-index:2;pointer-events:none;}
+    .trust-viewport::before{left:0;background:linear-gradient(90deg,var(--surface-card),transparent);}
+    .trust-viewport::after{right:0;background:linear-gradient(270deg,var(--surface-card),transparent);}
+    .trust-track{display:flex;align-items:center;gap:56px;width:max-content;padding:14px 24px 18px;animation:trust-scroll 36s linear infinite;}
+    .trust-viewport:hover .trust-track{animation-play-state:paused;}
+    @keyframes trust-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+    .trust .client{flex:none;font-size:14.5px;font-weight:700;color:var(--on-surface-variant);letter-spacing:-0.01em;white-space:nowrap;}
+    .trust .client-logo{flex:none;opacity:1;display:inline-flex;align-items:center;}
+    .trust .cl{height:38px;width:auto;display:block;transition:transform .25s ease;}
+    .trust .client-logo:hover .cl{transform:scale(1.06);}
+    @media(max-width:640px){.trust .cl{height:30px;}.trust-track{gap:40px;}}
+    @media(prefers-reduced-motion:reduce){.trust-track{animation:none;flex-wrap:wrap;width:auto;}.trust-viewport{overflow-x:auto;}}
 
     /* Pillar cards (03 · brand methodology) */
-    .pillar3{background:#fff;border:1px solid #E7E5E2;border-radius:6px;padding:24px;transition:border-color 0.16s ease;}
+    .pillar3{background:#fff;border:1px solid #E7E5E2;border-radius:8px;padding:24px;transition:border-color 0.16s ease;}
     .pillar3:hover{border-color:#b9c4b4;}
     .pillar3 .pnum{font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:0.14em;color:var(--primary);margin-bottom:10px;}
     .pillar3 h3{font-size:16.5px;font-weight:600;color:var(--on-surface);margin-bottom:8px;}
@@ -121,20 +138,20 @@
     @media (max-width:1020px){
       .compact-gallery{grid-template-columns:repeat(3,1fr);}
       .explorer{grid-template-columns:1fr;}
-      .hero2-grid{grid-template-columns:1fr;gap:30px;}
-      .hero2-media img{height:340px;}
     }
     @media (max-width:720px){
       .compact-gallery{grid-template-columns:repeat(2,1fr);}
       .d2-status-grid{gap:12px 20px;}
       .demo2-ribbon{justify-content:flex-start;}
+      .hero2{padding:clamp(56px,12vw,84px) 0 60px;}
+      .hero2-credit{left:16px;}
     }
     @media (max-width:460px){.compact-gallery{grid-template-columns:1fr;}}
 
     @media (prefers-reduced-motion:no-preference){
-      .hero2 .tag-mono,.hero2 h1,.hero2 .lead,.hero2 .lead-flat,.hero2-cta,.hero2-stats,.hero2-media{opacity:0;animation:d2-rise 0.5s cubic-bezier(0.23,1,0.32,1) forwards;}
+      .hero2 .tag-mono,.hero2 h1,.hero2 .lead,.hero2 .lead-flat,.hero2-cta,.hero2-stats{opacity:0;animation:d2-rise 0.5s cubic-bezier(0.23,1,0.32,1) forwards;}
       .hero2 h1{animation-delay:0.06s;}.hero2 .lead{animation-delay:0.12s;}.hero2 .lead-flat{animation-delay:0.12s;}
-      .hero2-cta{animation-delay:0.18s;}.hero2-stats{animation-delay:0.24s;}.hero2-media{animation-delay:0.1s;}
+      .hero2-cta{animation-delay:0.18s;}.hero2-stats{animation-delay:0.24s;}
     }
     @keyframes d2-rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
   </style>
@@ -197,18 +214,21 @@
   </div>
 
   <main>
-    <!-- Hero (OVP 3.0 public-sector language) -->
+    <!-- Hero (light full-bleed photo fading into surface) -->
     <section class="hero2">
+      <div class="hero2-bg" aria-hidden="true">
+        <img src="assets/team-header.png" alt="" loading="eager"/>
+      </div>
       <div class="wrap hero2-grid">
-        <div>
-          <span class="tag-mono" style="display:inline-block;">Corporate Overview · Multi-Page Architecture</span>
+        <div class="hero2-content">
+          <span class="tag-mono">Corporate Overview · Multi-Page Architecture</span>
           <h1>Your business has something valuable to offer.</h1>
           <p class="lead">Our business is an authoritative management consulting website that strategically understands — and efficiently executes — your executive imperatives.</p>
           <p class="lead-flat">Senior partners, not delegated diagnosis. OVP partners with state and federal agencies, enterprise corporations, and mission-driven institutions through rigorous, evidence-based methodologies.</p>
 
           <div class="hero2-cta">
-            <a href="demo3.html#booking" class="btn btn-primary" style="padding:12px 22px;font-size:14px;">GET IN TOUCH</a>
-            <a href="what-we-do.html" class="btn btn-outline" style="padding:12px 20px;font-size:14px;">Explore Our Capabilities →</a>
+            <a href="demo3.html#booking" class="btn btn-primary">GET IN TOUCH</a>
+            <a href="what-we-do.html" class="btn btn-outline">Explore Our Capabilities →</a>
           </div>
 
           <div class="hero2-stats">
@@ -217,30 +237,41 @@
             <div><b>MBE / SBE</b><span>Certified contracting vehicles</span></div>
           </div>
         </div>
-
-        <figure class="hero2-media">
-          <img src="assets/TeamOVPatTeslaChicago1.png" alt="Team OVP site visit in Chicago"/>
-          <figcaption>
-            <span class="cap-tag">Field Evidence · Site Visit</span>
-            <b>Team OVP · Site Visit en Chicago</b>
-            <span>Visita al ecosistema tecnológico y desarrollo de equipo directivo (foto real; no implica relación de contrato con Tesla).</span>
-          </figcaption>
-        </figure>
       </div>
+      <span class="hero2-credit">Field Evidence · DOL Leadership Summit · Delaware</span>
     </section>
 
-    <!-- Real Client Logos Band -->
-    <section class="d2-sec" style="padding-top:44px;padding-bottom:44px;">
-      <div class="wrap">
-        <span class="tag-mono" style="display:block;text-align:center;margin-bottom:22px;">Organizaciones y Clientes Confirmados</span>
-        <div class="logo-band">
-          <div class="logo-chip" title="Delaware Department of Labor"><img src="assets/Untitleddesign281429.jpg" alt="Delaware Department of Labor"/></div>
-          <div class="logo-chip" title="34 Strong"><img src="assets/Untitleddesign28929.jpg" alt="34 Strong"/></div>
-          <div class="logo-chip" title="Illinois Action for Children"><img src="assets/illinois-action-for-children.png" alt="Illinois Action for Children"/></div>
-          <div class="logo-chip" title="PASO"><img src="assets/PASO.png" alt="PASO"/></div>
-          <div class="logo-chip" title="American Licorice Company"><img src="assets/ALC.png" alt="American Licorice Company"/></div>
-          <div class="logo-chip" title="Riveredge Hospital"><img src="assets/Riveredge-hospital.png" alt="Riveredge Hospital"/></div>
-          <div class="logo-chip" title="California Department of Public Health"><img src="assets/Untitleddesign282529.jpg" alt="California Department of Public Health"/></div>
+    <!-- Real Client Logos Carousel (shared with demos 1 & 3) -->
+    <section class="trust" aria-label="Selected engagements">
+      <p class="trust-eyebrow">Organizaciones y Clientes Confirmados</p>
+      <div class="trust-inner">
+        <div class="trust-viewport">
+          <div class="trust-track">
+            <!-- set 1 -->
+            <span class="client client-logo"><img class="cl" loading="lazy" src="assets/Untitleddesign281429.jpg" alt="Delaware Department of Labor"/></span>
+            <span class="client client-logo"><img class="cl" loading="lazy" src="assets/Untitleddesign28929.jpg" alt="34 Strong"/></span>
+            <span class="client client-logo"><img class="cl" loading="lazy" src="assets/illinois-action-for-children.png" alt="Illinois Action for Children"/></span>
+            <span class="client client-logo"><img class="cl" loading="lazy" src="assets/PASO.png" alt="PASO"/></span>
+            <span class="client">National Coalition of 100 Black Women Inc.</span>
+            <span class="client client-logo"><img class="cl" loading="lazy" src="assets/ALC.png" alt="American Licorice Company"/></span>
+            <span class="client client-logo"><img class="cl" loading="lazy" src="assets/Riveredge-hospital.png" alt="Riveredge Hospital"/></span>
+            <span class="client client-logo"><img class="cl" loading="lazy" src="assets/Untitleddesign281929.jpg" alt="7 Mindsets"/></span>
+            <span class="client client-logo"><img class="cl" loading="lazy" src="assets/Untitled2Bdesign2B2528242529.jpg" alt="California Cradle to Career Data System"/></span>
+            <span class="client client-logo"><img class="cl" loading="lazy" src="assets/Untitled2Bdesign2B2528222529.jpg" alt="Oak Park-River Forest Community Foundation"/></span>
+            <span class="client client-logo"><img class="cl" loading="lazy" src="assets/Untitleddesign282529.jpg" alt="California Department of Public Health"/></span>
+            <!-- set 2 (duplicate for seamless loop, hidden from assistive tech) -->
+            <span class="client client-logo" aria-hidden="true"><img class="cl" loading="lazy" src="assets/Untitleddesign281429.jpg" alt=""/></span>
+            <span class="client client-logo" aria-hidden="true"><img class="cl" loading="lazy" src="assets/Untitleddesign28929.jpg" alt=""/></span>
+            <span class="client client-logo" aria-hidden="true"><img class="cl" loading="lazy" src="assets/illinois-action-for-children.png" alt=""/></span>
+            <span class="client client-logo" aria-hidden="true"><img class="cl" loading="lazy" src="assets/PASO.png" alt=""/></span>
+            <span class="client" aria-hidden="true">National Coalition of 100 Black Women Inc.</span>
+            <span class="client client-logo" aria-hidden="true"><img class="cl" loading="lazy" src="assets/ALC.png" alt=""/></span>
+            <span class="client client-logo" aria-hidden="true"><img class="cl" loading="lazy" src="assets/Riveredge-hospital.png" alt=""/></span>
+            <span class="client client-logo" aria-hidden="true"><img class="cl" loading="lazy" src="assets/Untitleddesign281929.jpg" alt=""/></span>
+            <span class="client client-logo" aria-hidden="true"><img class="cl" loading="lazy" src="assets/Untitled2Bdesign2B2528242529.jpg" alt=""/></span>
+            <span class="client client-logo" aria-hidden="true"><img class="cl" loading="lazy" src="assets/Untitled2Bdesign2B2528222529.jpg" alt=""/></span>
+            <span class="client client-logo" aria-hidden="true"><img class="cl" loading="lazy" src="assets/Untitleddesign282529.jpg" alt=""/></span>
+          </div>
         </div>
       </div>
     </section>
