@@ -1,4 +1,4 @@
-es<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -177,11 +177,16 @@ es<!DOCTYPE html>
   .hero-cta .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,0.45);}
   .hero-cta .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
   .hero-kpis{
-    display:flex;flex-wrap:wrap;gap:24px;margin-top:38px;padding-top:20px;
-    border-top:1px solid rgba(255,255,255,0.16);
+    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px;padding-top:14px;
+    border-top:1px solid rgba(255,255,255,0.16);width:100%;
   }
-  .kpi .v{font-family:var(--display);font-size:20px;font-weight:400;color:#fff;}
-  .kpi .l{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#a9c4ab;margin-top:2px;font-family:var(--mono);}
+  .kpi{text-align:center;}
+  .kpi .v{font-family:var(--mono);font-size:14px;font-weight:500;color:#fff;letter-spacing:-0.01em;line-height:1.35;text-wrap:balance;}
+  .kpi .l{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#a9c4ab;margin-top:5px;font-family:var(--mono);}
+  @media(max-width:560px){
+    .kpi .v{font-size:11.5px;}
+    .kpi .l{font-size:8.5px;}
+  }
 
   /* ---------- trust strip ---------- */
   .trust{border-bottom:1px solid var(--border-strong);background:var(--surface-card);}
@@ -305,6 +310,26 @@ es<!DOCTYPE html>
 
 <a class="skip" href="#main">Skip to content</a>
 
+<!-- Demo Switcher Top Bar -->
+<div class="demo-switcher-bar" style="background:#111612;color:#f0f3ee;padding:8px 16px;font-size:12px;font-family:var(--mono,monospace);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;border-bottom:1px solid rgba(255,255,255,0.12);z-index:99999;position:relative;">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:4px;color:#00b700;font-weight:700;text-decoration:none;background:rgba(0,183,0,0.14);padding:4px 10px;border-radius:4px;border:1px solid rgba(0,183,0,0.3);">
+      ← Volver al Selector de Demos
+    </a>
+    <span style="opacity:0.4;">|</span>
+    <span style="color:#d4dad1;display:inline-flex;align-items:center;gap:8px;">
+      <img src="assets/ovp-logo-for-web-white.png" alt="OVP Knockout Logo" style="height:14px;width:auto;opacity:0.92;"/>
+      Estás viendo: <b style="color:#fff;">Demo 1 · Executive Precision</b>
+    </span>
+  </div>
+  <div style="display:flex;align-items:center;gap:6px;">
+    <span style="opacity:0.6;margin-right:4px;">Cambiar a:</span>
+    <span style="color:#fff;background:#016e00;padding:3px 9px;border-radius:3px;font-weight:700;border:1px solid #00b700;">Demo 1 (Precision)</span>
+    <a href="demo2.html" style="color:#ccc;background:rgba(255,255,255,0.08);padding:3px 9px;border-radius:3px;text-decoration:none;transition:all .15s ease;">Demo 2 (Corporativa)</a>
+    <a href="demo3.html" style="color:#ccc;background:rgba(255,255,255,0.08);padding:3px 9px;border-radius:3px;text-decoration:none;transition:all .15s ease;">Demo 3 (Conversión &amp; Citas)</a>
+  </div>
+</div>
+
 <!-- disclosure ribbon -->
 <div class="ribbon">Concept demo · Real OVP copy &amp; brand assets · Executive Precision Theme</div>
 
@@ -342,7 +367,7 @@ es<!DOCTYPE html>
             <a href="#careers">Careers</a>
           </nav>
           <div class="m-foot">
-            <a class="btn btn-primary" href="#contact">Get in Touch</a>
+<a class="btn btn-primary" href="demo3.html#booking">Book a Free Consultation</a>
           </div>
         </div>
       </details>

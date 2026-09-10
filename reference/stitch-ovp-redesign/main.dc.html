@@ -1,0 +1,340 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Work Sans", -apple-system, "Segoe UI", sans-serif; background: #faf9f5; color: #1b2119; }
+    a { color: #086b1f; text-decoration: none; }
+    a:hover { color: #00b700; }
+    h1, h2, h3 { margin: 0; font-family: "Work Sans", sans-serif; font-weight: 300; text-wrap: balance; }
+    p { margin: 0; }
+    .mono { font-family: "IBM Plex Mono", "Courier New", monospace; }
+  </style>
+</helmet>
+
+<div style="display:flex; flex-direction:column; width:100%; background:#faf9f5;">
+
+  <!-- disclosure ribbon -->
+  <div class="mono" style="background:#12160f; color:#e7ebe3; text-align:center; padding:10px 16px; font-size:12px; letter-spacing:0.06em; text-transform:uppercase;">
+    Concept demo — real OVP copy &amp; brand colors · photos and final logo file are placeholders, pending upload
+  </div>
+
+  <!-- nav -->
+  <div style="display:flex; align-items:center; justify-content:space-between; padding:18px 48px; border-bottom:1px solid #e1e6df; position:sticky; top:0; background:rgba(250,249,245,0.92); backdrop-filter: blur(8px); z-index:10;">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <div style="width:40px; height:40px; border-radius:8px; background:linear-gradient(135deg,#00b700,#0a6b1f); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:600; font-size:15px; letter-spacing:0.02em;">OVP</div>
+      <div style="display:flex; flex-direction:column; line-height:1.15;">
+        <span style="font-size:16px; font-weight:600; letter-spacing:-0.01em; color:#1b2119;">OVP Management Consulting</span>
+        <span class="mono" style="font-size:10px; letter-spacing:0.05em; text-transform:uppercase; color:#8a9089;">logo mark placeholder — swap for brand file</span>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; gap:32px;">
+      <div style="display:flex; gap:26px; font-size:14px; font-weight:500; color:#4c564a;">
+        <span>Who We Are</span>
+        <span>What We Do</span>
+        <span>Our Work</span>
+        <span>For Government</span>
+      </div>
+      <div style="padding:11px 22px; background:linear-gradient(135deg,#00c400,#079420); color:#fff; border-radius:100px; font-size:14px; font-weight:600; box-shadow:0 6px 16px -6px rgba(0,183,0,0.55);">Get in Touch</div>
+    </div>
+  </div>
+
+  <!-- hero -->
+  <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:56px; padding:84px 48px 68px; align-items:center; border-bottom:1px solid #e1e6df; position:relative; overflow:hidden;">
+    <div style="position:absolute; top:-120px; right:-120px; width:420px; height:420px; border-radius:50%; background:radial-gradient(circle,rgba(122,227,252,0.22),transparent 70%); pointer-events:none;"></div>
+    <div style="display:flex; flex-direction:column; gap:24px; position:relative;">
+      <span class="mono" style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#086b1f; display:flex; align-items:center; gap:8px;">
+        <span style="width:14px; height:1px; background:#086b1f; display:inline-block;"></span>
+        A Strengths-Based Consulting Firm
+      </span>
+      <h1 style="font-size:58px; font-weight:500; line-height:1.08; letter-spacing:-0.02em; color:#1b2119;">Your business has something <span style="color:#00b700; font-style:italic;">valuable</span> to offer.</h1>
+      <p style="font-size:19px; line-height:1.55; color:#4c564a; max-width:46ch;">Our leadership coaching and consulting services can help you find the best way to share it.</p>
+      <div style="display:flex; gap:14px; margin-top:8px;">
+        <div style="padding:15px 26px; background:linear-gradient(135deg,#00c400,#079420); color:#fff; border-radius:100px; font-size:15px; font-weight:600; box-shadow:0 8px 20px -8px rgba(0,183,0,0.6);">Get in Touch</div>
+        <div style="padding:15px 26px; border:1px solid #c9d0c6; color:#1b2119; border-radius:100px; font-size:15px; font-weight:600;">See Our Work</div>
+      </div>
+    </div>
+    <!-- hero photo placeholder: layered abstract brand-color composition, not a flat empty box -->
+    <div style="position:relative;">
+      <div style="position:absolute; top:22px; left:-22px; width:100%; height:100%; border-radius:10px; background:#7ae3fc; opacity:0.35;"></div>
+      <div style="position:relative; aspect-ratio:4/5; border-radius:10px; overflow:hidden; background:linear-gradient(155deg,#0d130c,#173a1c 55%,#00b700 130%); border:1px solid #0d130c;">
+        <svg style="position:absolute; inset:0; width:100%; height:100%;" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+          <circle cx="330" cy="70" r="150" fill="#7ae3fc" opacity="0.18"/>
+          <circle cx="60" cy="430" r="120" fill="#00b700" opacity="0.28"/>
+          <circle cx="120" cy="120" r="4" fill="#7ae3fc"/>
+          <circle cx="160" cy="120" r="4" fill="#7ae3fc" opacity="0.6"/>
+          <circle cx="200" cy="120" r="4" fill="#7ae3fc" opacity="0.3"/>
+          <path d="M0 340 C 100 300, 300 380, 400 320 L400 500 L0 500 Z" fill="#0d130c" opacity="0.35"/>
+        </svg>
+        <div style="position:absolute; left:18px; bottom:18px; display:flex; align-items:center; gap:8px; padding:9px 14px; background:rgba(13,19,12,0.55); backdrop-filter:blur(6px); border-radius:100px; border:1px solid rgba(255,255,255,0.15);">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e7ebe3" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 16l-5-4-4 3-3-2-6 5"/></svg>
+          <span class="mono" style="font-size:10.5px; letter-spacing:0.04em; text-transform:uppercase; color:#e7ebe3;">Photo pending from OVP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- proof strip -->
+  <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap; padding:22px 48px; background:#f0f3ee; border-bottom:1px solid #e1e6df;">
+    <span class="mono" style="font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:#7b8c7c; white-space:nowrap;">Selected engagements</span>
+    <div style="display:flex; gap:26px; flex-wrap:wrap; font-size:14px; font-weight:500; color:#4c564a;">
+      <span>Delaware Dept. of Labor</span>
+      <span>34 Strong</span>
+      <span>PASO</span>
+      <span>Illinois Action for Children</span>
+      <span>National Coalition of 100 Black Women</span>
+    </div>
+  </div>
+
+  <!-- services -->
+  <div style="padding:72px 48px; border-bottom:1px solid #e1e6df; display:flex; flex-direction:column; gap:40px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; border-bottom:1px solid #e1e6df; padding-bottom:24px;">
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <span class="mono" style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#086b1f;">What we do</span>
+        <h2 style="font-size:30px; color:#1b2119;">Three services, as they stand on ovpconsulting.com today</h2>
+      </div>
+      <p style="font-size:14px; color:#7b8c7c; max-width:36ch;">Copy below is verbatim from the current site — nothing rewritten.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+      <div style="position:relative; background:#fff; padding:32px 24px 26px; display:flex; flex-direction:column; gap:14px; border-radius:10px; border:1px solid #e1e6df; border-top:3px solid #00b700; overflow:hidden;">
+        <span class="mono" style="position:absolute; top:6px; right:14px; font-size:44px; font-weight:600; color:#f0f3ee; line-height:1;">01</span>
+        <div style="width:44px; height:44px; border-radius:10px; background:#eaf7eb; display:flex; align-items:center; justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#086b1f" stroke-width="1.6"><path d="M4 4h13l3 4-3 4H4z"/><path d="M4 16h9"/></svg>
+        </div>
+        <h3 style="font-size:17px; font-weight:600; color:#1b2119; position:relative;">Strategic Communications</h3>
+        <p style="font-size:14px; color:#4c564a; line-height:1.55; position:relative;">Set the right tone and increase positive engagements with customers and collaborators alike. Our strategic communications services can help generate measurable results for organizations, while broadening your team's impact.</p>
+      </div>
+      <div style="position:relative; background:#fff; padding:32px 24px 26px; display:flex; flex-direction:column; gap:14px; border-radius:10px; border:1px solid #e1e6df; border-top:3px solid #7ae3fc; overflow:hidden;">
+        <span class="mono" style="position:absolute; top:6px; right:14px; font-size:44px; font-weight:600; color:#f0f3ee; line-height:1;">02</span>
+        <div style="width:44px; height:44px; border-radius:10px; background:#e9f8fc; display:flex; align-items:center; justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a7fa0" stroke-width="1.6"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5"/></svg>
+        </div>
+        <h3 style="font-size:17px; font-weight:600; color:#1b2119; position:relative;">Leader &amp; Team Engagement</h3>
+        <p style="font-size:14px; color:#4c564a; line-height:1.55; position:relative;">Establish appropriate workplace norms that uncover your teams' talents, maximize the organization's potential and promote performance improvement. We use strengths-based methods to help shape winning team culture, and give members &amp; leaders the tools to sustain growth.</p>
+      </div>
+      <div style="position:relative; background:#fff; padding:32px 24px 26px; display:flex; flex-direction:column; gap:14px; border-radius:10px; border:1px solid #e1e6df; border-top:3px solid #848484; overflow:hidden;">
+        <span class="mono" style="position:absolute; top:6px; right:14px; font-size:44px; font-weight:600; color:#f0f3ee; line-height:1;">03</span>
+        <div style="width:44px; height:44px; border-radius:10px; background:#f0f0f0; display:flex; align-items:center; justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5a5a5a" stroke-width="1.6"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg>
+        </div>
+        <h3 style="font-size:17px; font-weight:600; color:#1b2119; position:relative;">Improvement Methods</h3>
+        <p style="font-size:14px; color:#4c564a; line-height:1.55; position:relative;">Improve current practices and craft new ones to ensure longevity of success. We use Continuous Improvement Process Design methods and problem-solving techniques to evaluate your processes and make recommendations for a reliable long-term payoff.</p>
+      </div>
+    </div>
+
+    <!-- proposed regroup note -->
+    <div style="display:flex; gap:16px; padding:22px 24px; background:#eef6ef; border:1px dashed #9fc7a3; border-radius:6px; align-items:flex-start;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#086b1f" stroke-width="1.5" style="flex:none; margin-top:2px;"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+      <p style="font-size:14px; color:#33402f; line-height:1.6;"><strong>Proposal, not current content:</strong> your own "Ejemplos recomendados" document suggests regrouping these three services into four evaluator-facing pillars (Strategy &amp; Execution · Organizational Performance · Leadership &amp; Change · Strategic Communication) to match how firms like Eagle Hill and Guidehouse structure their capabilities for government buyers. Worth a follow-up conversation before we build it into the real site.</p>
+    </div>
+  </div>
+
+  <!-- interactivity concept: self-assessment tool + booking flow, built on the 3 real services only -->
+  <div style="padding:72px 48px; border-bottom:1px solid #e1e6df; background:#f0f3ee; display:flex; flex-direction:column; gap:36px;">
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <span class="mono" style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#086b1f;">Concept — proposed, not built</span>
+      <h2 style="font-size:30px; color:#1b2119;">Making the site more interactive</h2>
+      <p style="font-size:14px; color:#7b8c7c; max-width:60ch;">Two low-cost interactions that route visitors to your three real services faster than a static page — both are UI concepts only, not wired up in this demo.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:24px;">
+      <!-- self-assessment mock -->
+      <div style="background:#fff; border:1px solid #e1e6df; border-radius:10px; padding:28px 26px; display:flex; flex-direction:column; gap:18px;">
+        <div class="mono" style="font-size:11px; letter-spacing:0.05em; text-transform:uppercase; color:#7b8c7c;">Prototype — self-assessment</div>
+        <p style="font-size:16px; font-weight:500; color:#1b2119;">What's your organization's biggest challenge right now?</p>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <span style="padding:9px 16px; border-radius:100px; border:1px solid #c9d0c6; font-size:13px; color:#4c564a;">Tone &amp; external communication</span>
+          <span style="padding:9px 16px; border-radius:100px; background:#00b700; color:#fff; font-size:13px; font-weight:600;">Team culture &amp; leadership</span>
+          <span style="padding:9px 16px; border-radius:100px; border:1px solid #c9d0c6; font-size:13px; color:#4c564a;">Processes that don't scale</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px; padding:14px 16px; background:#eaf7eb; border-radius:8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#086b1f" stroke-width="1.8" style="flex:none;"><path d="M5 12l5 5L20 7"/></svg>
+          <span style="font-size:13.5px; color:#1b2119;">Routes to: <strong>Leader &amp; Team Engagement</strong> — one of your three current services, not a new offering.</span>
+        </div>
+      </div>
+      <!-- booking mock -->
+      <div style="background:#fff; border:1px solid #e1e6df; border-radius:10px; padding:28px 26px; display:flex; flex-direction:column; gap:18px;">
+        <div class="mono" style="font-size:11px; letter-spacing:0.05em; text-transform:uppercase; color:#7b8c7c;">Prototype — request a conversation</div>
+        <p style="font-size:16px; font-weight:500; color:#1b2119;">Replaces the generic contact form with calendar-based booking.</p>
+        <div style="display:flex; gap:8px;">
+          <div style="flex:1; text-align:center; padding:10px 4px; border-radius:6px; border:1px solid #e1e6df; font-size:12px; color:#7b8c7c;">Tue<br><strong style="color:#1b2119; font-size:15px;">14</strong></div>
+          <div style="flex:1; text-align:center; padding:10px 4px; border-radius:6px; background:#00b700; color:#fff; font-size:12px;">Wed<br><strong style="font-size:15px;">15</strong></div>
+          <div style="flex:1; text-align:center; padding:10px 4px; border-radius:6px; border:1px solid #e1e6df; font-size:12px; color:#7b8c7c;">Thu<br><strong style="color:#1b2119; font-size:15px;">16</strong></div>
+          <div style="flex:1; text-align:center; padding:10px 4px; border-radius:6px; border:1px solid #e1e6df; font-size:12px; color:#7b8c7c;">Fri<br><strong style="color:#1b2119; font-size:15px;">17</strong></div>
+        </div>
+        <div style="padding:13px 20px; background:#1b2119; color:#faf9f5; border-radius:100px; font-size:14px; font-weight:600; text-align:center; width:fit-content;">Request this time</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- marketplace & payments concept: single productized offer, not a full catalog -->
+  <div style="padding:72px 48px; border-bottom:1px solid #e1e6df; display:flex; flex-direction:column; gap:32px;">
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <span class="mono" style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#086b1f;">Concept — proposed, not built</span>
+      <h2 style="font-size:30px; color:#1b2119;">A first step toward marketplace &amp; payments</h2>
+      <p style="font-size:14px; color:#7b8c7c; max-width:66ch;">Rather than a full self-serve catalog, we start with one packaged offer built from your existing strengths-based methods — validating demand before expanding.</p>
+    </div>
+    <div style="max-width:480px; background:#fff; border:1px solid #e1e6df; border-radius:12px; padding:30px 28px; display:flex; flex-direction:column; gap:16px; box-shadow:0 12px 32px -16px rgba(27,33,25,0.18);">
+      <span class="mono" style="font-size:11px; letter-spacing:0.05em; text-transform:uppercase; color:#7b8c7c;">Packaged offer — draft naming, pending OVP sign-off</span>
+      <h3 style="font-size:19px; font-weight:600; color:#1b2119;">Team Strengths Diagnostic</h3>
+      <p style="font-size:14px; color:#4c564a; line-height:1.55;">A fixed-scope engagement drawn from Leader &amp; Team Engagement — one packaged, bookable version of work you already do, priced and scheduled online.</p>
+      <div style="display:flex; align-items:baseline; gap:6px;">
+        <span class="mono" style="font-size:22px; font-weight:600; color:#1b2119;">$X,XXX</span>
+        <span style="font-size:13px; color:#7b8c7c;">starting at — illustrative price</span>
+      </div>
+      <div style="padding:14px 22px; background:linear-gradient(135deg,#00c400,#079420); color:#fff; border-radius:100px; font-size:15px; font-weight:600; text-align:center; box-shadow:0 8px 20px -8px rgba(0,183,0,0.6);">Request this engagement</div>
+      <p class="mono" style="font-size:10.5px; letter-spacing:0.03em; color:#8a9089; line-height:1.5;">Concept only — checkout would run through your existing Squarespace/Stripe commerce, not a custom payment system. OVP never stores card data.</p>
+    </div>
+  </div>
+
+  <!-- government band -->
+  <div style="background:#0d130c; color:#f3f5ef; padding:72px 48px; display:flex; flex-direction:column; gap:36px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; border-bottom:1px solid #2c352a; padding-bottom:24px;">
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <span class="mono" style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#7ae3fc;">New section</span>
+        <h2 style="font-size:28px; color:#f3f5ef;">Built for public-sector &amp; strategic-partner buyers</h2>
+      </div>
+      <p style="font-size:14px; color:#aeb6a6; max-width:36ch;">Modeled on how NSP &amp; Co. answers a prime contractor's first four questions.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px;">
+      <div style="display:flex; flex-direction:column; gap:22px;">
+        <div>
+          <div class="mono" style="font-size:12px; color:#7ae3fc; margin-bottom:6px;">Can we contract with OVP?</div>
+          <p style="font-size:15px; color:#c7cec2; max-width:44ch;">[OVP to confirm — GSA Schedule status, socioeconomic certifications, contract vehicles]</p>
+        </div>
+        <div>
+          <div class="mono" style="font-size:12px; color:#7ae3fc; margin-bottom:6px;">What does OVP do?</div>
+          <p style="font-size:15px; color:#c7cec2; max-width:44ch;">Strategic communications, leader &amp; team engagement, and improvement methods — delivered by senior partners.</p>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <p style="font-size:14px; color:#aeb6a6;">Credential chips — replace with confirmed details:</p>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <span class="mono" style="font-size:12px; padding:8px 13px; border:1px dashed #3a4334; border-radius:2px; color:#aeb6a6;">NAICS — pending</span>
+          <span class="mono" style="font-size:12px; padding:8px 13px; border:1px dashed #3a4334; border-radius:2px; color:#aeb6a6;">GSA Schedule — pending</span>
+          <span class="mono" style="font-size:12px; padding:8px 13px; border:1px solid #3a4334; border-radius:2px; color:#c7cec2;">Woman/Minority-owned — confirm status</span>
+        </div>
+        <div style="padding:13px 20px; background:#3fd23f; color:#0b1a0a; border-radius:4px; font-size:14px; font-weight:600; width:fit-content; margin-top:6px;">Download Capability Statement</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- team -->
+  <div style="padding:72px 48px; border-bottom:1px solid #e1e6df; display:flex; flex-direction:column; gap:40px;">
+    <div style="display:flex; flex-direction:column; gap:12px; border-bottom:1px solid #e1e6df; padding-bottom:24px;">
+      <span class="mono" style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#086b1f;">Who we are</span>
+      <h2 style="font-size:30px; color:#1b2119;">Senior partners, not delegated diagnosis</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="width:100%; aspect-ratio:1; border-radius:10px; background:linear-gradient(150deg,#00b700,#0a3d10); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+          <svg style="position:absolute; inset:0; width:100%; height:100%;" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="88" cy="10" r="34" fill="#7ae3fc" opacity="0.18"/></svg>
+          <span style="font-size:34px; font-weight:600; color:#fff; letter-spacing:0.02em; position:relative;">AB</span>
+        </div>
+        <div>
+          <div style="font-size:15px; font-weight:600; color:#1b2119;">Alejandro Bodipo-Memba</div>
+          <div class="mono" style="font-size:11px; letter-spacing:0.04em; text-transform:uppercase; color:#7b8c7c; margin-top:2px;">CEO &amp; Founder</div>
+        </div>
+        <p style="font-size:13.5px; color:#4c564a; line-height:1.55;">Has led projects in strategic communications, executive leadership training, team building and management consulting across the U.S., Europe and Latin America — using a systems-thinking approach to complex process problems.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="width:100%; aspect-ratio:1; border-radius:10px; background:linear-gradient(150deg,#0a7fa0,#0d130c); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+          <svg style="position:absolute; inset:0; width:100%; height:100%;" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="10" cy="92" r="34" fill="#00b700" opacity="0.18"/></svg>
+          <span style="font-size:34px; font-weight:600; color:#fff; letter-spacing:0.02em; position:relative;">ET</span>
+        </div>
+        <div>
+          <div style="font-size:15px; font-weight:600; color:#1b2119;">Ebony Tran</div>
+          <div class="mono" style="font-size:11px; letter-spacing:0.04em; text-transform:uppercase; color:#7b8c7c; margin-top:2px;">Chief of Staff &amp; Operations</div>
+        </div>
+        <p style="font-size:13.5px; color:#4c564a; line-height:1.55;">25 years of global experience; former senior U.S. Foreign Service Officer. ICF-accredited coach who has empowered senior leaders and driven organizational effectiveness across public and private sectors.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="width:100%; aspect-ratio:1; border-radius:10px; background:linear-gradient(150deg,#5a5a5a,#1b2119); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+          <svg style="position:absolute; inset:0; width:100%; height:100%;" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="88" cy="88" r="34" fill="#7ae3fc" opacity="0.16"/></svg>
+          <span style="font-size:34px; font-weight:600; color:#fff; letter-spacing:0.02em; position:relative;">AP</span>
+        </div>
+        <div>
+          <div style="font-size:15px; font-weight:600; color:#1b2119;">Al Pacha</div>
+          <div class="mono" style="font-size:11px; letter-spacing:0.04em; text-transform:uppercase; color:#7b8c7c; margin-top:2px;">Director of Information Technology</div>
+        </div>
+        <p style="font-size:13.5px; color:#4c564a; line-height:1.55;">25+ years developing IT solutions; architect of OVP's proprietary assessment tools and its AI/LLM-linked tooling for operational efficiency.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- testimonials -->
+  <div style="padding:72px 48px; border-bottom:1px solid #e1e6df; background:#f0f3ee; display:flex; flex-direction:column; gap:40px;">
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <span class="mono" style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#086b1f;">In their words</span>
+      <h2 style="font-size:30px; color:#1b2119;">Real client testimonials, unedited</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:24px;">
+      <div style="position:relative; background:#fff; border:1px solid #e1e6df; border-left:3px solid #00b700; border-radius:8px; padding:30px 26px 26px; display:flex; flex-direction:column; gap:14px;">
+        <span style="position:absolute; top:10px; right:20px; font-size:64px; font-family:Georgia,serif; color:#eaf7eb; line-height:1;">&rdquo;</span>
+        <p style="font-size:15.5px; color:#33402f; line-height:1.6; position:relative;">"Alejandro and the team at OVP are seasoned veterans, and know how to create meaningful change, build trust, focus on strengths and help to improve employee engagement. They are true professionals and make real lasting impact on their clients."</p>
+        <div style="font-size:13px; color:#7b8c7c; font-weight:500;">Darren Virassammy — Co-founder &amp; COO, 34 Strong Inc.</div>
+      </div>
+      <div style="position:relative; background:#fff; border:1px solid #e1e6df; border-left:3px solid #7ae3fc; border-radius:8px; padding:30px 26px 26px; display:flex; flex-direction:column; gap:14px;">
+        <span style="position:absolute; top:10px; right:20px; font-size:64px; font-family:Georgia,serif; color:#e9f8fc; line-height:1;">&rdquo;</span>
+        <p style="font-size:15.5px; color:#33402f; line-height:1.6; position:relative;">"We are having an excellent experience with OVP Consulting group. They are mainly trying to help us to improve our strategic communications and we believe this is going to be really useful for our growth as small charity."</p>
+        <div style="font-size:13px; color:#7b8c7c; font-weight:500;">Robert Memba, MD, PhD — President, Mas Que Salud NGO</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- trust -->
+  <div style="padding:64px 48px; border-bottom:1px solid #e1e6df; display:grid; grid-template-columns:0.8fr 1.2fr; gap:52px; align-items:center;">
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <span class="mono" style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#086b1f;">Secure by design</span>
+      <h2 style="font-size:26px; color:#1b2119;">Baseline security hygiene, shipped by default</h2>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px 28px;">
+        <div style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#4c564a;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#086b1f" stroke-width="1.6" style="flex:none; margin-top:3px;"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>
+          HTTPS everywhere, hardened managed hosting
+        </div>
+        <div style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#4c564a;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#086b1f" stroke-width="1.6" style="flex:none; margin-top:3px;"><path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7z"/></svg>
+          Hosted checkout — OVP never stores card data
+        </div>
+        <div style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#4c564a;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#086b1f" stroke-width="1.6" style="flex:none; margin-top:3px;"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+          Minimal third-party scripts, no unnecessary tracking
+        </div>
+        <div style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#4c564a;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#086b1f" stroke-width="1.6" style="flex:none; margin-top:3px;"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+          Cookie consent &amp; privacy policy built in at launch
+        </div>
+      </div>
+      <p style="font-size:12.5px; color:#8a9089; max-width:62ch;">Covers the website layer only. CMMC Level 1 readiness is an organization-wide effort — see the accompanying audit document.</p>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div style="padding:44px 48px; display:flex; justify-content:space-between; align-items:flex-start; gap:32px; flex-wrap:wrap;">
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      <div style="font-size:18px; font-weight:600; color:#1b2119;">OVP Management Consulting</div>
+      <p style="font-size:13px; color:#7b8c7c; max-width:38ch;">Concept direction for the 2026 site redesign — real copy from the current site, photos and logo file pending.</p>
+    </div>
+    <div class="mono" style="font-size:11.5px; color:#8a9089; line-height:1.9;">
+      <div><span style="color:#4c564a; font-weight:600;">Prepared by</span> Marga Mbande</div>
+      <div><span style="color:#4c564a; font-weight:600;">For</span> Alejandro Bodipo-Memba &amp; Ebony Tran</div>
+      <div><span style="color:#4c564a; font-weight:600;">Palette</span> #00B700 · #7AE3FC · #848484</div>
+      <div><span style="color:#4c564a; font-weight:600;">Type</span> Work Sans (closest Google-Fonts match to Proxima Nova)</div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

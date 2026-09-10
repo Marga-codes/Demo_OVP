@@ -1,0 +1,6 @@
+{
+  "name": "OVP Management Consulting Group",
+  "description": "Portal de selección y propuestas de rediseño web para OVP Management Consulting Group con 3 demos interactivas (Demo 1, Demo 2 y Demo 3) para cliente",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

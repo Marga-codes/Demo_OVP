@@ -1,0 +1,325 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Strategic Services - OVP Management Consulting Group</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-container": "#006778",
+                      "surface-container-low": "#f6f3f2",
+                      "surface-tint": "#016e00",
+                      "error": "#ba1a1a",
+                      "surface-container-highest": "#e5e2e1",
+                      "on-tertiary-container": "#6d003a",
+                      "tertiary-fixed": "#ffd9e3",
+                      "surface-subtle": "#F8F9FA",
+                      "surface-bright": "#fcf9f8",
+                      "on-background": "#1b1b1b",
+                      "primary": "#016e00",
+                      "secondary-fixed-dim": "#6bd5ed",
+                      "secondary": "#006879",
+                      "on-error-container": "#93000a",
+                      "border-light": "#E5E7EB",
+                      "surface-variant": "#e5e2e1",
+                      "secondary-container": "#7de6ff",
+                      "secondary-fixed": "#a9edff",
+                      "outline": "#6d7b66",
+                      "background": "#fcf9f8",
+                      "on-tertiary-fixed": "#3e001f",
+                      "surface-dim": "#dcd9d9",
+                      "inverse-primary": "#4ce33b",
+                      "on-tertiary-fixed-variant": "#8d024d",
+                      "on-secondary-fixed-variant": "#004e5b",
+                      "surface-container-high": "#eae7e7",
+                      "on-primary-fixed": "#002200",
+                      "primary-fixed-dim": "#4ce33b",
+                      "tertiary-container": "#ff68a5",
+                      "on-error": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed-variant": "#015300",
+                      "surface": "#fcf9f8",
+                      "primary-fixed": "#77ff61",
+                      "text-muted": "#848484",
+                      "tertiary": "#ad2665",
+                      "on-primary-container": "#013f00",
+                      "inverse-on-surface": "#f3f0ef",
+                      "inverse-surface": "#313030",
+                      "on-secondary-fixed": "#001f26",
+                      "surface-container": "#f0eded",
+                      "primary-container": "#00b700",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb0c9",
+                      "on-surface": "#1b1b1b",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#3d4a38",
+                      "outline-variant": "#bccbb3"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "unit": "8px",
+                      "margin-mobile": "16px",
+                      "section-gap": "120px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Public Sans"
+                      ],
+                      "quote": [
+                              "Public Sans"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Public Sans"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Public Sans"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Public Sans"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "quote": [
+                              "22px",
+                              {
+                                      "lineHeight": "34px",
+                                      "fontWeight": "300"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.08em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "300"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "300"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .bento-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+            border-color: #016e00;
+        }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col pt-[88px]">
+<!-- TopNavBar (Generated from Shared Components JSON) -->
+<header class="bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-border-light dark:border-outline-variant shadow-sm dark:shadow-none transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-gutter py-4">
+<div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed tracking-tight">
+                OVP Management Consulting Group
+            </div>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center space-x-8 font-body-md text-body-md">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Leadership</a>
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 font-semibold" href="#">Strategic</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Consulting</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Contact</a>
+<a class="bg-primary-container text-on-primary font-bold uppercase tracking-wider py-2 px-6 rounded-DEFAULT hover:bg-primary transition-colors text-sm" href="#">SET IN TOUCH</a>
+</nav>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-gutter pt-section-gap pb-24">
+<div class="max-w-3xl">
+<p class="font-label-caps text-label-caps text-primary mb-4 uppercase tracking-widest">Capabilities</p>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-6">
+                    Strategic Services
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    We navigate complex organizational challenges with surgical precision. Our strategic practices are designed to deliver actionable insights and measurable outcomes for enterprise and public-sector leaders.
+                </p>
+</div>
+</section>
+<!-- Bento Grid Section -->
+<section class="max-w-container-max mx-auto px-gutter pb-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[320px]">
+<!-- Card 1: Economic Advisory (Large) -->
+<div class="md:col-span-2 bento-card relative overflow-hidden rounded-lg border border-border-light bg-surface-subtle transition-all duration-300 group cursor-pointer flex flex-col justify-end p-8">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500" data-alt="A modern, abstract representation of economic data and growth charts overlaid on a bright, minimalist corporate boardroom setting. High key lighting, premium corporate consulting aesthetic, subtle gold and green accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB03h9zRF7rfm3goEqHz8PsczLdQNkA916waGYvqfFBvl9y8xCYjGePnKf4c5MaAIBXKmxuuFj12zFiQmxC-ui90ftlt7TOmbioF_XebaOki725yTkTMX_XBsicS2NAguiM_r0chuYlkp-iZLFwIvmOmwCszb0kHH5gH_Pr3_mAz_XsxMl6o4lmG1PEv0w2yYc9ZZvjRehvKJoDpxsQD5SqEBCEFfuqYK2B5d_cSLKaHG77Jt0Xd6e-rw">
+</div>
+<div class="relative z-10 bg-white/80 backdrop-blur-sm p-6 rounded-DEFAULT border border-border-light/50 max-w-lg">
+<div class="flex items-center gap-3 mb-4 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<span class="font-label-caps text-label-caps uppercase">Practice Area</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3 text-on-background">Economic Advisory</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+                            Rigorous quantitative modeling and macroeconomic forecasting to guide capital allocation and risk management strategies.
+                        </p>
+</div>
+</div>
+<!-- Card 2: Public Policy (Tall) -->
+<div class="md:row-span-2 bento-card relative overflow-hidden rounded-lg border border-border-light bg-surface-subtle transition-all duration-300 group cursor-pointer flex flex-col p-8">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-15 group-hover:opacity-25 transition-opacity duration-500" data-alt="A minimalist architectural detail of a government building or capital dome, rendered in high key white lighting with subtle shadows, conveying stability and public sector authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJJ-dH-VuyjSx3MENjRhHcfvWyqzfQArfipnv-Ms4YsynH9N12ztqKFpRc8RhIP58OXehK7mQDETGpJIs6ic2UNVGRr712A_JLM6qCsKQOsQIT3hEkfGwdPsnm5pAGzAB6tcqTSChAJ_cnAZFsLMOD35uEY8V1ylTGYWfaBnaRk5R3JxJzQGjPV6PeTIXLSv2iANaO-t0fuiMw4rvY80B0gdPYkZxl0-SLpIojjjakDmmTxe4wbdDmOw">
+</div>
+<div class="relative z-10 flex flex-col h-full">
+<div class="flex items-center gap-3 mb-4 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3 text-on-background mt-auto">Public Policy &amp; Regulation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Navigating complex regulatory environments and shaping policy narratives for government agencies and regulated industries.
+                        </p>
+</div>
+</div>
+<!-- Card 3: Digital Transformation -->
+<div class="bento-card relative overflow-hidden rounded-lg border border-border-light bg-surface-subtle transition-all duration-300 group cursor-pointer p-8">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-500" data-alt="Abstract digital network connections and binary data streams glowing faintly on a clean, light gray background. Modern, minimalist tech consulting vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFKAqSrhJgZG6QG9gdVNvCbJIHGlEru-Q38IiW8MTLCBVbmTRRIXS7EA0-cXoixD7ne2pH-Ie1V8xuK_n5tbJzKca5jeHojUBl1E2h__HKjQU-GahkDAp3xFig0RzUA_3tPCXJ_JkZMFDrb1h8w6tn0ebjT5nZUrEv_o7O25cqqr3-eIE5LtC1vJtzvO7uHDGs4tjKsMag8ig6x4Lty2GqqX89IRL1I-NSnS9uM7F17nnQrbYWPRVXiQ">
+</div>
+<div class="relative z-10 flex flex-col h-full justify-between">
+<div class="text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">memory</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-2 text-on-background">Digital Transformation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
+                                Modernizing legacy systems and architecting scalable enterprise architectures for the digital era.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Card 4: Sustainability -->
+<div class="bento-card relative overflow-hidden rounded-lg border border-border-light bg-surface-subtle transition-all duration-300 group cursor-pointer p-8">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-15 group-hover:opacity-25 transition-opacity duration-500" data-alt="A macro shot of a single green leaf resting on a pristine white marble surface, illuminated by soft natural light. Represents clean energy, sustainability, and ESG principles in a premium corporate context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjByiNnG4rcArgphJgndBbFN_IhiAXwlkhSG7n2o51cKNyqS038eJKxJ4J_XTX2B09fQE5dasg_22_OLQMsbSIhTIK-mENtLBHHQU6ZRAqLc-5a7t8BjRY6SG_3x54pRx9a2623mdOIBWtzCmN1WpRjdE3zMzMNMbk2d5FI8U9PrWeqgIS1B9FGmvLC7gkjkBQbRx589XLC-sX6WgsaYhiHrnAAXdkx6RMq6jSntIgm1KV1S-Gqh8vFg">
+</div>
+<div class="relative z-10 flex flex-col h-full justify-between">
+<div class="text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-2 text-on-background">Sustainability &amp; ESG</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
+                                Developing robust frameworks for environmental stewardship and corporate governance compliance.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Card 5: Infrastructure (Wide) -->
+<div class="md:col-span-2 bento-card relative overflow-hidden rounded-lg border border-border-light bg-surface-subtle transition-all duration-300 group cursor-pointer p-8 flex items-center">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center opacity-20 group-hover:opacity-30 transition-opacity duration-500" data-alt="A wide, bright, high-key architectural rendering of modern infrastructure, perhaps a sleek bridge or transit hub, bathed in morning light with vast whitespace." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjs8hrohidQjlmJL_eCVlYwzhW-Z-v1WZlbY9aNu2174B7qtLkntGhL8mUUK0DZf6WdKpYT8BE_mPt6W7la9lX44EXyh_zYyfkeBYpzDvhasB7noAMAnkZTC7mmQRlzzKNY5dm2_MGJaGElLogSCiD1aaRuT5Cgf33yNWI0gCbNkiEgIlHCG0l3FbUKvoWkcVnVtZ6HKzy43fDQF0c2AT74qrxNbRcVDy04ZoymgF75B0q5EWmP-UmVg')"></div>
+</div>
+<div class="relative z-10 flex flex-col md:flex-row gap-8 items-center w-full">
+<div class="bg-white/90 backdrop-blur-sm p-4 rounded-full text-primary shrink-0">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">foundation</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-2 text-on-background">Infrastructure &amp; Real Estate</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                                Strategic advisory for large-scale capital projects, asset lifecycle management, and urban development initiatives.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Generated from Shared Components JSON) -->
+<footer class="w-full pt-section-gap pb-12 bg-on-secondary-fixed dark:bg-on-secondary-fixed-variant opacity-90 hover:opacity-100 transition-opacity">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-gutter">
+<div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+<span class="font-headline-sm text-headline-sm font-bold text-secondary-fixed">
+                    OVP Management Consulting Group
+                </span>
+<p class="font-body-md text-body-md text-secondary-fixed/80">
+                    © 2024 OVP Management Consulting Group. All rights reserved.
+                </p>
+</div>
+<div class="col-span-1 md:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8">
+<div class="flex flex-col space-y-3 font-body-md text-body-md">
+<a class="text-secondary-fixed underline" href="#">Leadership</a>
+<a class="text-secondary-fixed/80 hover:text-white transition-colors" href="#">Strategic</a>
+<a class="text-secondary-fixed/80 hover:text-white transition-colors" href="#">Consulting</a>
+</div>
+<div class="flex flex-col space-y-3 font-body-md text-body-md">
+<a class="text-secondary-fixed/80 hover:text-white transition-colors" href="#">Contact</a>
+<a class="text-secondary-fixed/80 hover:text-white transition-colors" href="#">NAICS Codes</a>
+<a class="text-secondary-fixed/80 hover:text-white transition-colors" href="#">GSA Schedule</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

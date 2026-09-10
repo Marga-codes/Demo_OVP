@@ -1,0 +1,301 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Leadership - OVP Management Consulting Group</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#006778",
+                    "surface-container-low": "#f6f3f2",
+                    "surface-tint": "#016e00",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-tertiary-container": "#6d003a",
+                    "tertiary-fixed": "#ffd9e3",
+                    "surface-subtle": "#F8F9FA",
+                    "surface-bright": "#fcf9f8",
+                    "on-background": "#1b1b1b",
+                    "primary": "#016e00",
+                    "secondary-fixed-dim": "#6bd5ed",
+                    "secondary": "#006879",
+                    "on-error-container": "#93000a",
+                    "border-light": "#E5E7EB",
+                    "surface-variant": "#e5e2e1",
+                    "secondary-container": "#7de6ff",
+                    "secondary-fixed": "#a9edff",
+                    "outline": "#6d7b66",
+                    "background": "#fcf9f8",
+                    "on-tertiary-fixed": "#3e001f",
+                    "surface-dim": "#dcd9d9",
+                    "inverse-primary": "#4ce33b",
+                    "on-tertiary-fixed-variant": "#8d024d",
+                    "on-secondary-fixed-variant": "#004e5b",
+                    "surface-container-high": "#eae7e7",
+                    "on-primary-fixed": "#002200",
+                    "primary-fixed-dim": "#4ce33b",
+                    "tertiary-container": "#ff68a5",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#015300",
+                    "surface": "#fcf9f8",
+                    "primary-fixed": "#77ff61",
+                    "text-muted": "#848484",
+                    "tertiary": "#ad2665",
+                    "on-primary-container": "#013f00",
+                    "inverse-on-surface": "#f3f0ef",
+                    "inverse-surface": "#313030",
+                    "on-secondary-fixed": "#001f26",
+                    "surface-container": "#f0eded",
+                    "primary-container": "#00b700",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb0c9",
+                    "on-surface": "#1b1b1b",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#3d4a38",
+                    "outline-variant": "#bccbb3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "margin-mobile": "16px",
+                    "section-gap": "120px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-md": [
+                            "Public Sans"
+                    ],
+                    "quote": [
+                            "Public Sans"
+                    ],
+                    "label-caps": [
+                            "Inter"
+                    ],
+                    "display-lg-mobile": [
+                            "Public Sans"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Public Sans"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-sm": [
+                            "Public Sans"
+                    ]
+            },
+            "fontSize": {
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "quote": [
+                            "22px",
+                            {
+                                    "lineHeight": "34px",
+                                    "fontWeight": "300"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.08em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "36px",
+                            {
+                                    "lineHeight": "44px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "300"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "300"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-sm": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "500"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased pt-[80px]">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md shadow-sm dark:shadow-none border-b border-border-light dark:border-outline-variant transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-gutter py-4">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed tracking-tight">OVP Management Consulting Group</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 font-semibold" href="#">Leadership</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Strategic</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Consulting</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Contact</a>
+<button class="bg-primary text-on-primary font-label-caps text-label-caps px-6 py-2 rounded uppercase hover:bg-primary/90 transition-colors">SET IN TOUCH</button>
+</div>
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-gutter py-section-gap">
+<!-- Header Section -->
+<div class="text-center mb-16 md:mb-24">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-4">Leadership</h1>
+<div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Our partners bring decades of executive experience across public and private sectors, guiding organizations through complex transformations with strategic precision.
+            </p>
+</div>
+<!-- Leadership Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter lg:gap-12">
+<!-- Profile Card 1: David -->
+<div class="group bg-surface-subtle border border-border-light rounded-lg overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] flex flex-col h-full">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low">
+<img alt="Portrait of David" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1U9B14VRy5OQcppDlydgRZHwUO5L2vMfMPcwBjzAZdNOrV91Nu8B2GEop_8eIFumLuEUz8_geBJrcmMBoujqAMrFrvT1KDD94DAqa-SiXalEWu3S_ApApl-ZWFI2bbbMEDR0zRxMFU8_M7aeXC0hG-MJ1GHZ7yJNKT1oTBVcVIZ4ct8j-F89LHrrSTxDr7JD21pcDl7GvbGp1HODQei6r2SD-I0_eOQa-kS5zmejR5Ns_woCZ3EbTCeOG4">
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-2">Founding Partner</span>
+<h3 class="font-headline-md text-headline-md text-on-background mb-4">David Thompson</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">
+                        David brings over 25 years of experience in federal strategic management and organizational transformation. He has led major initiatives for Defense and Civilian agencies.
+                    </p>
+<a class="inline-flex items-center font-label-caps text-label-caps text-primary uppercase group-hover:text-primary-container transition-colors" href="#">
+                        View Full Profile
+                        <span class="material-symbols-outlined ml-2 text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Profile Card 2: Ebony -->
+<div class="group bg-surface-subtle border border-border-light rounded-lg overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] flex flex-col h-full">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low">
+<img alt="Portrait of Ebony" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1VD2d8SlAXgrNcl3eTr2uKq4zwhByWBIxABZqgzvO3xsJbjkhBgcXEa21Hw-Z6kyymSd7pCPCjHZA67HrL-iBnf6JHgNMnNhkwLKhcg_zGjIFSUynITUPY29YBT3ejCFf-_itEuAix8WMUFGdQ-Jvd_7hxiKYn_BSIaxGRzH9bmtE6ZKTte40NGvCwQ3MJ5v6Ra53PY8CNACVzIM8XCkvlo0m41foMRZabBYIEkMPVHQFbTQNiXaB_x7yE">
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-2">Managing Partner</span>
+<h3 class="font-headline-md text-headline-md text-on-background mb-4">Ebony Williams</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">
+                        Specializing in human capital strategy and change management, Ebony directs our consulting practice ensuring holistic alignment between enterprise goals and workforce capabilities.
+                    </p>
+<a class="inline-flex items-center font-label-caps text-label-caps text-primary uppercase group-hover:text-primary-container transition-colors" href="#">
+                        View Full Profile
+                        <span class="material-symbols-outlined ml-2 text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Profile Card 3: Generic Representative -->
+<div class="group bg-surface-subtle border border-border-light rounded-lg overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] flex flex-col h-full">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A professional studio portrait of a confident Black male executive in his 40s wearing a dark tailored suit and light blue tie. The lighting is soft and corporate, creating a modern, high-end editorial look against a neutral grey background. The mood is authoritative yet approachable, fitting for a senior management consultant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuU352biovzGI_QeneSGQFXJ11sSqtbHZra2Z7NkQGgUxpI_I4XoWtegIiS8rAoHxGHS3poOfTDHxP830tNgtsz95Pf0xiTadw6wPuEqR0vFj9vxGi5L_fUDooWd55PbVS5QlPNZ2cVxKoUHQngT-ws0_E80plYh_zcagGbe9Ad7ZBBHLwHpEWlkMQOubxy64CXBmSx8ZTGKKxa9WL2_-LVyWb1ThAhY_Rp2PpxqIhqd8Z1kEsB7U1AQ">
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-2">Senior Principal</span>
+<h3 class="font-headline-md text-headline-md text-on-background mb-4">Marcus Sterling</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">
+                        Marcus leads the technology advisory practice, bridging the gap between complex IT modernizations and core business objectives for large-scale public sector clients.
+                    </p>
+<a class="inline-flex items-center font-label-caps text-label-caps text-primary uppercase group-hover:text-primary-container transition-colors" href="#">
+                        View Full Profile
+                        <span class="material-symbols-outlined ml-2 text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Profile Card 4: Generic Representative -->
+<div class="group bg-surface-subtle border border-border-light rounded-lg overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] flex flex-col h-full">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A sophisticated corporate headshot of a Black female senior consultant in her 50s. She is wearing an elegant navy blazer and minimal silver jewelry. The lighting is bright and clean, reflecting a premium, modern light-mode aesthetic. The background is a soft, out-of-focus modern office setting with expansive windows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl27qGPqaZZIf3tAHNNEfvskkc0gh9VXFfERc5u_YQmRM9JP7Mee6Ir-PnMZCPsIGzk64ld16UIBZGxNuY0sK82Bhlnm95mbX8_RDp06f-IeNInMNE75mv9l1bFyZcB8CVg2BuZimVJEYjhT3L6ZCTqD7Vhlk60dEGmiIFXygrksR8t2YxDSBGBjsIqfqQNnNQCcff94imb0yt5B8r73eiAwzNozyT3A4_1amfCdxwJUfpCrHfoscFJQ">
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-2">Principal Consultant</span>
+<h3 class="font-headline-md text-headline-md text-on-background mb-4">Sarah Jenkins</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">
+                        An expert in financial strategy and operational efficiency, Sarah provides critical insights for cost optimization and resource allocation in highly regulated environments.
+                    </p>
+<a class="inline-flex items-center font-label-caps text-label-caps text-primary uppercase group-hover:text-primary-container transition-colors" href="#">
+                        View Full Profile
+                        <span class="material-symbols-outlined ml-2 text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-section-gap pb-12 bg-on-secondary-fixed dark:bg-on-secondary-fixed-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-gutter">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-sm text-headline-sm font-bold text-secondary-fixed block mb-6">OVP</span>
+<p class="font-body-md text-body-md text-secondary-fixed/80 mb-6">
+                     Management Consulting Group
+                 </p>
+<p class="font-body-md text-body-md text-secondary-fixed/60 text-sm">
+                    © 2024 OVP Management Consulting Group. All rights reserved.
+                 </p>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-widest mb-4">Company</h4>
+<ul class="space-y-3">
+<li><a class="font-body-md text-body-md text-secondary-fixed underline opacity-90 hover:opacity-100 transition-opacity hover:text-white transition-colors" href="#">Leadership</a></li>
+<li><a class="font-body-md text-body-md text-secondary-fixed/80 hover:text-secondary-fixed transition-colors opacity-90 hover:opacity-100 transition-opacity hover:text-white transition-colors" href="#">Strategic</a></li>
+<li><a class="font-body-md text-body-md text-secondary-fixed/80 hover:text-secondary-fixed transition-colors opacity-90 hover:opacity-100 transition-opacity hover:text-white transition-colors" href="#">Consulting</a></li>
+<li><a class="font-body-md text-body-md text-secondary-fixed/80 hover:text-secondary-fixed transition-colors opacity-90 hover:opacity-100 transition-opacity hover:text-white transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-widest mb-4">Federal</h4>
+<ul class="space-y-3">
+<li><a class="font-body-md text-body-md text-secondary-fixed/80 hover:text-secondary-fixed transition-colors opacity-90 hover:opacity-100 transition-opacity hover:text-white transition-colors" href="#">NAICS Codes</a></li>
+<li><a class="font-body-md text-body-md text-secondary-fixed/80 hover:text-secondary-fixed transition-colors opacity-90 hover:opacity-100 transition-opacity hover:text-white transition-colors" href="#">GSA Schedule</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>

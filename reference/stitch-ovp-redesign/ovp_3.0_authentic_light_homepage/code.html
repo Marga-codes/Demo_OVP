@@ -1,0 +1,305 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>OVP Management Consulting Group</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#006778",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-tint": "#016e00",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-tertiary-container": "#6d003a",
+                        "tertiary-fixed": "#ffd9e3",
+                        "surface-subtle": "#F8F9FA",
+                        "surface-bright": "#fcf9f8",
+                        "on-background": "#1b1b1b",
+                        "primary": "#016e00",
+                        "secondary-fixed-dim": "#6bd5ed",
+                        "secondary": "#006879",
+                        "on-error-container": "#93000a",
+                        "border-light": "#E5E7EB",
+                        "surface-variant": "#e5e2e1",
+                        "secondary-container": "#7de6ff",
+                        "secondary-fixed": "#a9edff",
+                        "outline": "#6d7b66",
+                        "background": "#fcf9f8",
+                        "on-tertiary-fixed": "#3e001f",
+                        "surface-dim": "#dcd9d9",
+                        "inverse-primary": "#4ce33b",
+                        "on-tertiary-fixed-variant": "#8d024d",
+                        "on-secondary-fixed-variant": "#004e5b",
+                        "surface-container-high": "#eae7e7",
+                        "on-primary-fixed": "#002200",
+                        "primary-fixed-dim": "#4ce33b",
+                        "tertiary-container": "#ff68a5",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#015300",
+                        "surface": "#fcf9f8",
+                        "primary-fixed": "#77ff61",
+                        "text-muted": "#848484",
+                        "tertiary": "#ad2665",
+                        "on-primary-container": "#013f00",
+                        "inverse-on-surface": "#f3f0ef",
+                        "inverse-surface": "#313030",
+                        "on-secondary-fixed": "#001f26",
+                        "surface-container": "#f0eded",
+                        "primary-container": "#00b700",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb0c9",
+                        "on-surface": "#1b1b1b",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#3d4a38",
+                        "outline-variant": "#bccbb3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "section-gap": "120px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Public Sans"],
+                        "quote": ["Public Sans"],
+                        "label-caps": ["Inter"],
+                        "display-lg-mobile": ["Public Sans"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Public Sans"],
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "quote": ["22px", { "lineHeight": "34px", "fontWeight": "300" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "300" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "300" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); }
+        .bento-card {
+            background-color: theme('colors.surface-container-lowest');
+            border: 1px solid theme('colors.border-light');
+            transition: all 0.3s ease;
+        }
+        .bento-card:hover {
+            border-color: theme('colors.primary');
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.04);
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased font-body-md text-body-md">
+<!-- TopNavBar -->
+<nav class="bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md font-body-md text-body-md fixed top-0 w-full z-50 shadow-sm dark:shadow-none border-b border-border-light dark:border-outline-variant transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-gutter py-4">
+<div class="flex items-center gap-4">
+<img alt="OVP Management Consulting Group Logo" class="h-12 w-auto object-contain" data-alt="A clean, professional logo for a management consulting group featuring the letters OVP in a modern, structured font." src="https://lh3.googleusercontent.com/aida/AEtjO1XTHt0lk_3aqtF_AbiuQ7V9R60TcfhXDAZcrrdl-x8VK43TcrFTLsEeQHrT0MRk9E-7o2CLAjYmdbabkync5-uqBFo5X2wBcDKcYkxBrBEBqOvePgs7Eb8fj3vG35QkGOMMwQ9M8d3aEnn1PDpQHwxDCG62VsU0_LFxlkt76b_e0_1BsW4meMA--CZUUQxabh5Iwpl4cdL12mafqAVNla_jir8POFZaYBr2WSyHTH1DtYKDPcf9N6EcwTGp">
+</div>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 font-semibold hover:text-primary dark:hover:text-primary-fixed" href="#">Leadership</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Strategic</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Consulting</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Contact</a>
+</div>
+<div class="hidden md:flex items-center">
+<a class="bg-[#008F00] text-white px-6 py-2.5 rounded font-label-caps text-label-caps uppercase tracking-wider hover:bg-primary-fixed-variant transition-colors" href="#">SET IN TOUCH</a>
+</div>
+<!-- Mobile Menu Button -->
+<button class="md:hidden p-2 text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative pt-32 pb-24 md:pt-48 md:pb-32 overflow-hidden flex items-center min-h-[80vh]">
+<div class="absolute inset-0 z-0">
+<div class="bg-cover bg-center w-full h-full" data-alt="A cinematic, slightly blurred background showing a modern, bright corporate boardroom with professionals engaged in a strategic meeting. Light filters through large glass windows, creating a premium, aspirational atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjKBZh8WV9QG61rlz-itKwyQPDlAPO_i1B8F-51ZXyDt31-f27k8a4xbL5JN8kTExTc2l0KVHVW-Gp6cWjhBbL8GXFSqRG9Pc89R6SP3PsHn_bSIIC7ZrbBuCv8SS9TRotBSXLogVc7nfmTontqxUNWun0X9tJ1D_psSkh8ZEWzk-6U2CIA_1dslhXSjHiT5uJA_cW8aIYALHW2BI9fKTebnm5WXEM3n5jKw0T3wuAzjjc6rbWc-lrnQ')"></div>
+<div class="absolute inset-0 bg-white/70 backdrop-blur-[2px]"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full">
+<div class="max-w-2xl">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6 leading-tight">Your business has something valuable to offer.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                    Our business is authoritative management consulting website, and strategic understands and efficiently executes your executive imperatives.
+                </p>
+<a class="inline-flex bg-[#008F00] text-white px-8 py-3.5 rounded font-label-caps text-label-caps uppercase tracking-wider hover:bg-primary-fixed-variant transition-colors shadow-sm" href="#">GET IN TOUCH</a>
+</div>
+</div>
+</section>
+<!-- Capability Pillars (Bento Grid) -->
+<section class="py-section-gap bg-surface-subtle">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="mb-12 border-b border-border-light pb-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">Capability Pillars</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bento-card p-8 rounded-lg flex flex-col h-full border-t-2 border-t-primary">
+<span class="material-symbols-outlined text-primary text-3xl mb-4" style="font-variation-settings: 'FILL' 0;">insights</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Leadership and Dorinaral Strategic Consulting</h3>
+<p class="text-on-surface-variant text-sm mt-auto">Our business is authoritative management consulting website, and strategic understands and efficiently executes your executive imperatives.</p>
+</div>
+<!-- Card 2 -->
+<div class="bento-card p-8 rounded-lg flex flex-col h-full border-t-2 border-t-[#D4AF37]">
+<span class="material-symbols-outlined text-[#D4AF37] text-3xl mb-4" style="font-variation-settings: 'FILL' 0;">account_tree</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Strategic Sie Management and Resources</h3>
+<p class="text-on-surface-variant text-sm mt-auto">Our business is authoritative management consulting website, and strategic understands and efficiently executes your executive imperatives.</p>
+</div>
+<!-- Card 3 -->
+<div class="bento-card p-8 rounded-lg flex flex-col h-full border-t-2 border-t-primary">
+<span class="material-symbols-outlined text-primary text-3xl mb-4" style="font-variation-settings: 'FILL' 0;">corporate_fare</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Pestitates, imonestallizatont and Inimisretones</h3>
+<p class="text-on-surface-variant text-sm mt-auto">Our business is authoritative management consulting website, and strategic understands and efficiently executes your executive imperatives.</p>
+</div>
+<!-- Card 4 -->
+<div class="bento-card p-8 rounded-lg flex flex-col h-full border-t-2 border-t-[#D4AF37]">
+<span class="material-symbols-outlined text-[#D4AF37] text-3xl mb-4" style="font-variation-settings: 'FILL' 0;">payments</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Soomlup and Business Payments to offers</h3>
+<p class="text-on-surface-variant text-sm mt-auto">Our business is authoritative management consulting website, and strategic understands and efficiently executes your executive imperatives.</p>
+</div>
+<!-- Card 5 -->
+<div class="bento-card p-8 rounded-lg flex flex-col h-full border-t-2 border-t-primary md:col-span-2">
+<span class="material-symbols-outlined text-primary text-3xl mb-4" style="font-variation-settings: 'FILL' 0;">handshake</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Leadership Consalling &amp; Strategic Filroaaal Strategie</h3>
+<p class="text-on-surface-variant text-sm mt-auto max-w-2xl">Our business is authoritative management consulting website, and strategic understands and efficiently executes your executive imperatives. We provide comprehensive solutions for complex organizational challenges.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Leadership Section -->
+<section class="py-section-gap bg-background">
+<div class="max-w-container-max mx-auto px-gutter text-center">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-16 relative inline-block">
+                Leadership
+                <span class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-border-light"></span>
+</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<!-- Leader 1 -->
+<div class="group text-left">
+<div class="aspect-[3/4] overflow-hidden rounded-sm bg-surface-container-high mb-4">
+<img alt="David - Founder" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1U9B14VRy5OQcppDlydgRZHwUO5L2vMfMPcwBjzAZdNOrV91Nu8B2GEop_8eIFumLuEUz8_geBJrcmMBoujqAMrFrvT1KDD94DAqa-SiXalEWu3S_ApApl-ZWFI2bbbMEDR0zRxMFU8_M7aeXC0hG-MJ1GHZ7yJNKT1oTBVcVIZ4ct8j-F89LHrrSTxDr7JD21pcDl7GvbGp1HODQei6r2SD-I0_eOQa-kS5zmejR5Ns_woCZ3EbTCeOG4">
+</div>
+<h3 class="font-bold text-lg text-on-surface">David M.</h3>
+<p class="text-sm text-on-surface-variant">Founder</p>
+</div>
+<!-- Leader 2 -->
+<div class="group text-left lg:-mt-8">
+<div class="aspect-[3/4] overflow-hidden rounded-sm bg-surface-container-high mb-4">
+<img alt="Ebony - Founder and Partner" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1VD2d8SlAXgrNcl3eTr2uKq4zwhByWBIxABZqgzvO3xsJbjkhBgcXEa21Hw-Z6kyymSd7pCPCjHZA67HrL-iBnf6JHgNMnNhkwLKhcg_zGjIFSUynITUPY29YBT3ejCFf-_itEuAix8WMUFGdQ-Jvd_7hxiKYn_BSIaxGRzH9bmtE6ZKTte40NGvCwQ3MJ5v6Ra53PY8CNACVzIM8XCkvlo0m41foMRZabBYIEkMPVHQFbTQNiXaB_x7yE">
+</div>
+<h3 class="font-bold text-lg text-on-surface">Ebony S.</h3>
+<p class="text-sm text-on-surface-variant">Founder and Partner</p>
+</div>
+<!-- Placeholder Leader 3 -->
+<div class="group text-left">
+<div class="aspect-[3/4] overflow-hidden rounded-sm bg-surface-container-high mb-4">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A professional headshot of a diverse corporate executive in a sharp suit against a neutral studio background, looking confident." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuyrZETeJPQjluhiWMPNFAEXuDizirLUspVOc4TdCJNYyrHxc_G_f9NzjbbXyFmIGdqrhwnYhIZbmZ1AIxPEgncSOSjZurwKCUM-jKLHk50lUxEOADbP_joxhacOG9bM8MvJqnHIgtcxfF7PCHYok9pWmnzbrTXyhwzaz4YnKhqcN_7QgoGQJ5_a6c0OMkFl3X64PsJBAhRB5RHAn3FKSVRA7x7lT-mOswkIcPbYOU9bnQGmzMOsCOYw">
+</div>
+<h3 class="font-bold text-lg text-on-surface">Michael R.</h3>
+<p class="text-sm text-on-surface-variant">Managing Director</p>
+</div>
+<!-- Placeholder Leader 4 -->
+<div class="group text-left lg:-mt-8">
+<div class="aspect-[3/4] overflow-hidden rounded-sm bg-surface-container-high mb-4">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A professional headshot of a female management consultant in business attire, smiling slightly against a soft grey background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgH4Sdt58k9v6U2udqbJyH5newsMV5m9UaYBH3VpxVIbvvdiv9ym168g7F4XU7wmU2ay8_ehRSbmAtywMk321DZgjbSrT1R-8-1gULoujdlBciWBedYkXKDEiax2AFHPlgPJNPGMaQ4oqVFnVanXP5P5C15we6BotVZeQZkKC9HygwIoRavLiysqYenOk3_XEelF6MuzoprKVUB9Ss7TWzq6NoUSqMscwfAd4D_P5d3w2lT9EpmBY7hg">
+</div>
+<h3 class="font-bold text-lg text-on-surface">Sarah K.</h3>
+<p class="text-sm text-on-surface-variant">Senior Partner</p>
+</div>
+</div>
+<div class="flex justify-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="w-2 h-2 rounded-full bg-border-light"></span>
+<span class="w-2 h-2 rounded-full bg-border-light"></span>
+</div>
+</div>
+</section>
+<!-- Testimonial Section -->
+<section class="py-section-gap bg-surface-subtle">
+<div class="max-w-4xl mx-auto px-gutter text-center">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-12 relative inline-block">
+                Testimonial
+                <span class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-border-light"></span>
+</h2>
+<div class="relative bg-white p-12 rounded-lg border border-border-light shadow-sm">
+<span class="material-symbols-outlined absolute top-8 left-8 text-secondary-fixed-dim text-4xl opacity-50" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<p class="font-quote text-quote text-on-surface-variant italic mb-8 relative z-10 px-8">
+                    "OVP Management Consulting provided exceptional strategic guidance that completely realigned our organizational objectives. Their rigorous approach and deep expertise are unmatched in the public sector."
+                </p>
+<div class="flex items-center justify-center gap-4">
+<img alt="Ebony S." class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VD2d8SlAXgrNcl3eTr2uKq4zwhByWBIxABZqgzvO3xsJbjkhBgcXEa21Hw-Z6kyymSd7pCPCjHZA67HrL-iBnf6JHgNMnNhkwLKhcg_zGjIFSUynITUPY29YBT3ejCFf-_itEuAix8WMUFGdQ-Jvd_7hxiKYn_BSIaxGRzH9bmtE6ZKTte40NGvCwQ3MJ5v6Ra53PY8CNACVzIM8XCkvlo0m41foMRZabBYIEkMPVHQFbTQNiXaB_x7yE">
+<div class="text-left">
+<h4 class="font-bold text-on-surface">Ebony S.</h4>
+<p class="text-sm text-on-surface-variant">Founder and Partner</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-on-secondary-fixed dark:bg-on-secondary-fixed-variant font-body-md text-body-md w-full pt-section-gap pb-12 flat no shadows opacity-90 hover:opacity-100 transition-opacity">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-gutter mb-12">
+<!-- Brand -->
+<div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+<h2 class="font-headline-sm text-headline-sm font-bold text-secondary-fixed">OVP</h2>
+<p class="text-secondary-fixed/80 text-sm">Management Consulting Group</p>
+</div>
+<!-- Links -->
+<div class="col-span-1 md:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-8">
+<div class="flex flex-col gap-3">
+<h3 class="font-bold text-secondary-fixed mb-2">Company</h3>
+<a class="text-secondary-fixed underline" href="#">Leadership</a>
+<a class="text-secondary-fixed/80 hover:text-white transition-colors" href="#">Strategic</a>
+<a class="text-secondary-fixed/80 hover:text-white transition-colors" href="#">Consulting</a>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="font-bold text-secondary-fixed mb-2">Information</h3>
+<a class="text-secondary-fixed/80 hover:text-white transition-colors" href="#">Contact</a>
+<a class="text-secondary-fixed/80 hover:text-white transition-colors" href="#">NAICS Codes</a>
+<a class="text-secondary-fixed/80 hover:text-white transition-colors" href="#">GSA Schedule</a>
+</div>
+</div>
+<!-- Social/Contact -->
+<div class="col-span-1 flex flex-col gap-4">
+<h3 class="font-bold text-secondary-fixed mb-2">Follow Us</h3>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded-full border border-secondary-fixed flex items-center justify-center text-secondary-fixed hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">link</span>
+</a>
+<a class="w-8 h-8 rounded-full border border-secondary-fixed flex items-center justify-center text-secondary-fixed hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter border-t border-secondary-fixed/20 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-secondary-fixed/60">
+<p>© 2024 OVP Management Consulting Group. All rights reserved.</p>
+</div>
+</footer>
+</body></html>
