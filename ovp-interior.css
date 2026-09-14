@@ -190,6 +190,7 @@ img {
 
 .btn-primary:hover {
   background: var(--primary-bright);
+  color: #06280a;
 }
 
 .btn-outline {
