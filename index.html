@@ -1,67 +1,86 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OVP Management Consulting Group — Demos de Rediseño Web</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <meta name="theme-color" content="#fcf9f8"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png"/>
+  <title>OVP Management Consulting Group — Redesign Concepts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0d140c;
-      --panel:#131d13;
-      --line:rgba(255,255,255,.08);
-      --green:#00b700;
-      --text:#e9efe8;
-      --muted:#96a394;
-      --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
-      --sans:'Work Sans',system-ui,sans-serif;
-      --deco:'Monoton',cursive;
+      --bg:#fcf9f8;--surface:#ffffff;--border:#e7e5e2;--border-strong:#d7d4d0;
+      --ink:#1b1b1b;--muted:#6b6b6b;--green:#016e00;--green-bright:#00b700;--cyan:#0a8fa8;
+      --sans:'Work Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+      --r:0.625rem;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;display:grid;place-items:center;padding:48px 24px}
-    .shell{width:100%;max-width:1080px;text-align:center}
-    .logo{font-family:var(--deco);color:var(--green);font-size:13px;letter-spacing:.22em;margin-bottom:6px;font-weight:400}
-    h1{font-weight:300;font-size:clamp(26px,4.2vw,40px);letter-spacing:.02em;margin-bottom:10px}
-    p.sub{color:var(--muted);font-weight:300;max-width:560px;margin:0 auto 44px;line-height:1.6}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;text-align:left}
-    a.card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:30px 28px;text-decoration:none;color:var(--text);transition:transform .18s ease,border-color .18s ease,background .18s ease}
-    a.card:hover{transform:translateY(-4px);border-color:rgba(0,183,0,.5);background:#162116}
-    .num{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--green);text-transform:uppercase}
-    a.card h2{font-weight:600;font-size:20px;margin:12px 0 8px}
-    a.card p{color:var(--muted);font-weight:300;font-size:13.5px;line-height:1.55;margin-bottom:18px}
-    .go{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--green);text-transform:uppercase}
-    footer{margin-top:40px;color:var(--muted);font-size:12px;font-weight:300}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;}
+    a{color:inherit;}
+    img{display:block;max-width:100%;}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+    :focus-visible{outline:2px solid var(--green-bright);outline-offset:2px;border-radius:4px;}
+
+    header.top{padding:20px 0;border-bottom:1px solid var(--border);}
+    .brand{display:flex;align-items:center;gap:12px;}
+    .author{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:0.01em;}
+
+    main{padding:clamp(40px,6vw,64px) 0 40px;}
+    h1{font-weight:600;font-size:clamp(26px,3.8vw,36px);letter-spacing:-0.02em;line-height:1.15;margin-bottom:10px;max-width:20ch;}
+    p.sub{color:var(--muted);font-weight:400;max-width:60ch;font-size:15px;line-height:1.6;}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:44px;}
+    a.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:26px 26px 22px;text-decoration:none;color:var(--ink);transition:transform 160ms ease-out,border-color 160ms ease-out,box-shadow 160ms ease-out;}
+    a.card:hover{transform:translateY(-3px);border-color:var(--green-bright);box-shadow:0 12px 28px -18px rgba(0,0,0,0.18);}
+    a.card:active{transform:translateY(-1px) scale(0.99);}
+    .card .num{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--green);text-transform:uppercase;font-weight:600;}
+    .card h2{font-weight:600;font-size:19px;margin:12px 0 8px;letter-spacing:-0.01em;}
+    .card .direction{font-size:12.5px;color:var(--cyan);font-weight:600;margin-bottom:10px;}
+    .card p{color:var(--muted);font-weight:400;font-size:13.5px;line-height:1.6;margin-bottom:18px;flex-grow:1;}
+    .card .go{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;color:var(--ink);border-top:1px solid var(--border);padding-top:14px;display:flex;align-items:center;justify-content:space-between;}
+    a.card:hover .go{color:var(--green);}
+
+    footer{margin-top:48px;padding:24px 0;border-top:1px solid var(--border);color:var(--muted);font-size:12.5px;}
   </style>
 </head>
 <body>
-  <main class="shell">
-    <div class="logo">OVP</div>
-    <h1>Rediseño Web · Demos</h1>
-    <p class="sub">Tres propuestas de diseño para el sitio de OVP Management Consulting Group. Elige una demo para verla completa en el navegador.</p>
+  <header class="top">
+    <div class="wrap brand">
+      <span class="author">Margarita Naluganga</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>OVP redesign — 3 demo directions</h1>
+    <p class="sub">Pick a card to open that demo full-screen. Each one has a small switcher at the top so you can jump between all three without coming back here.</p>
 
     <div class="grid">
       <a class="card" href="demo1.html">
         <span class="num">Demo 1</span>
-        <h2>Executive Precision</h2>
-        <p>Estética ejecutiva sobria, tipografía editorial y tono institucional — la apuesta formal y de alta presidencia.</p>
-        <span class="go">Abrir demo →</span>
+        <h2>Boutique Precision</h2>
+        <span class="direction">Light, warm, editorial</span>
+        <span class="go">Open demo <span aria-hidden="true">→</span></span>
       </a>
       <a class="card" href="demo2.html">
         <span class="num">Demo 2</span>
-        <h2>Propuesta Corporativa</h2>
-        <p>Multi-página orientada al sector público y partners estratégicos, con evidencias de campo reales de la firma.</p>
-        <span class="go">Abrir demo →</span>
+        <h2>Public-Sector Ready</h2>
+        <span class="direction">Light with a credentials band</span>
+        <span class="go">Open demo <span aria-hidden="true">→</span></span>
       </a>
       <a class="card" href="demo3.html">
         <span class="num">Demo 3</span>
-        <h2>Alta Conversión</h2>
-        <p>One-page orientada a reservar cita, con el framework "The OVP Method" y CTA de consulta siempre visible.</p>
-        <span class="go">Abrir demo →</span>
+        <h2>Conversion &amp; Consultation</h2>
+        <span class="direction">Bold editorial + booking</span>
+        <span class="go">Open demo <span aria-hidden="true">→</span></span>
       </a>
     </div>
-
-    <footer>OVP Management Consulting Group · Demos conceptuales de rediseño web</footer>
   </main>
+
+  <footer class="wrap">
+    <span>Concept demos — not the live OVP site</span>
+  </footer>
 </body>
 </html>
