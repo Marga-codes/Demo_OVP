@@ -46,7 +46,7 @@ $('form[data-local]').forEach(function (form) {
   }
   fields.forEach(function (el) {
     el.addEventListener('blur', function () { if (el.value || el.type === 'checkbox') check(el); });
-    el.addEventListener('change', function () { if (el.getAttribute('aria-invalid') === 'true') check(el); });
+    el.addEventListener('input', function () { if (el.getAttribute('aria-invalid') === 'true') check(el); });
   });
   form.addEventListener('submit', function (e) {
     e.preventDefault();

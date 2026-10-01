@@ -9,7 +9,7 @@
   <link rel="icon" href="assets/img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,400&amp;display=swap">
   <link rel="stylesheet" href="assets/css/ovp.css">
   <script src="assets/js/ovp.js" defer></script>
 </head>
@@ -32,22 +32,16 @@
     </div>
   </header>
   <main id="main" tabindex="-1">
-    <section class="hero theme-light" aria-labelledby="hero-title">
-      <div class="container split split--wide">
-        <div>
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-bg" src="assets/img/hero-washington.webp" alt="" width="1800" height="1198" fetchpriority="high">
+      <div class="container">
+        <div class="hero-inner">
           <span class="eyebrow">Management consulting for public agencies, businesses &amp; nonprofits</span>
           <h1 id="hero-title">Building on strengths to deliver lasting results.</h1>
           <p class="lead">OVP helps organizations turn strategy into execution — by building on what their people already do best.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="contact.html">Book a consultation</a>
-            <a class="btn btn--secondary" href="our-work.html">See our work</a>
-          </div>
-        </div>
-        <div class="hero-media">
-          <img src="assets/img/hero-facilitation.webp" alt="A facilitator leads a planning workshop while colleagues around a table add ideas to a wall of sticky notes" width="1600" height="1067" fetchpriority="high">
-          <div class="hero-note">
-            <span class="eyebrow">Featured engagement</span>
-            <p><strong>Delaware Department of Labor</strong>Strategic communications and change support for a state agency, over four years.</p>
+            <a class="btn btn--tertiary" href="our-work.html">See our work</a>
           </div>
         </div>
       </div>
@@ -60,45 +54,35 @@
       </div>
     </section>
 
-    <section class="section theme-alt" aria-labelledby="help-title">
-      <div class="container">
-        <div class="section-head section-head--row">
-          <div>
-            <h2 id="help-title">How we help</h2>
-            <p>Four practice areas, one approach: start from what your people already do well, then build the plan, processes and messages around it.</p>
-          </div>
-          <a class="btn btn--tertiary" href="services.html">All services</a>
+    <section class="section theme-light" aria-labelledby="help-title">
+      <div class="container split">
+        <div>
+          <span class="eyebrow">Services</span>
+          <h2 id="help-title">How we help</h2>
+          <p class="lead mt-4">Four practice areas, one approach: start from what your people already do well, then build the plan, processes and messages around it.</p>
+          <div class="mt-4"><a class="btn btn--tertiary" href="services.html">All services</a></div>
         </div>
-        <div class="grid grid--4 reveal">
-        <article class="card card--service">
-          <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-          <h3><a href="services/strategy-execution.html">Strategy & Execution</a></h3>
-          <p>Turn strategy into plans your people actually adopt — and results you can measure.</p>
-          <span class="btn btn--tertiary" aria-hidden="true">Explore</span>
-        </article>
-        <article class="card card--service">
-          <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>
-          <h3><a href="services/organizational-performance.html">Organizational Performance</a></h3>
-          <p>Diagnose what's slowing you down and design processes built to last.</p>
-          <span class="btn btn--tertiary" aria-hidden="true">Explore</span>
-        </article>
-        <article class="card card--service">
-          <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-          <h3><a href="services/leadership-change.html">Leadership & Change</a></h3>
-          <p>Build leaders and teams that grow from their strengths through every change.</p>
-          <span class="btn btn--tertiary" aria-hidden="true">Explore</span>
-        </article>
-        <article class="card card--service">
-          <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
-          <h3><a href="services/strategic-communication.html">Strategic Communication</a></h3>
-          <p>Set the right tone with every audience and turn messages into measurable engagement.</p>
-          <span class="btn btn--tertiary" aria-hidden="true">Explore</span>
-        </article>
-        </div>
+        <ol class="svc-list reveal"><li class="svc-row">
+            <h3><a href="services/strategy-execution.html">Strategy & Execution</a></h3>
+            <p>Turn strategy into plans your people actually adopt — and results you can measure.</p>
+            <span class="arrow" aria-hidden="true">→</span>
+          </li><li class="svc-row">
+            <h3><a href="services/organizational-performance.html">Organizational Performance</a></h3>
+            <p>Diagnose what's slowing you down and design processes built to last.</p>
+            <span class="arrow" aria-hidden="true">→</span>
+          </li><li class="svc-row">
+            <h3><a href="services/leadership-change.html">Leadership & Change</a></h3>
+            <p>Build leaders and teams that grow from their strengths through every change.</p>
+            <span class="arrow" aria-hidden="true">→</span>
+          </li><li class="svc-row">
+            <h3><a href="services/strategic-communication.html">Strategic Communication</a></h3>
+            <p>Set the right tone with every audience and turn messages into measurable engagement.</p>
+            <span class="arrow" aria-hidden="true">→</span>
+          </li></ol>
       </div>
     </section>
 
-    <section class="section theme-light" aria-labelledby="numbers-title">
+    <section class="section theme-light" aria-labelledby="numbers-title" style="padding-top:0">
       <div class="container">
         <h2 id="numbers-title" class="visually-hidden">OVP at a glance</h2>
         <div class="stats reveal">
@@ -110,46 +94,46 @@
       </div>
     </section>
 
-    <section class="section theme-light" aria-labelledby="case-title" style="padding-top:0">
+    <section class="section theme-alt" aria-labelledby="case-title">
       <div class="container split">
-        <figure class="media-frame">
-          <img src="assets/img/case-dol-briefing.webp" alt="Delaware Secretary of Labor Karryl Hubbard speaks at a podium during a press conference, with a sign-language interpreter beside her" width="690" height="736" loading="lazy">
-        </figure>
         <div>
           <span class="eyebrow">Case study · Government</span>
           <h2 id="case-title">Delaware Department of Labor</h2>
+          <div class="mt-4"><a class="btn btn--tertiary" href="our-work/case-study.html">Read the case study</a></div>
+        </div>
+        <div>
+          <figure class="media-frame"><img src="assets/img/arch-chamber.webp" alt="An empty legislative chamber with rows of desks facing the speaker’s chair" width="1600" height="820" loading="lazy"></figure>
           <dl class="case-steps">
             <div><dt>Challenge</dt><dd>New agency leadership needed to explain fast-moving pandemic changes to staff and the public — without a change plan or a unified communications strategy.</dd></div>
             <div><dt>What we did</dt><dd>Ran a needs assessment, centralized communications, set measurement criteria, led town halls and media, and built a communications charter.</dd></div>
             <div><dt>Result</dt><dd>Documented gains over four years in online engagement, media interviews and leadership visibility. The “Did You Know…?” campaign became one of the department’s best-recognized efforts.</dd></div>
           </dl>
-          <a class="btn btn--tertiary" href="our-work/case-study.html">Read the case study</a>
         </div>
       </div>
     </section>
 
-    <section class="section theme-alt" aria-labelledby="serve-title">
+    <section class="section theme-light" aria-labelledby="serve-title">
       <div class="container">
         <div class="section-head section-head--row">
           <div>
+            <span class="eyebrow">Sectors</span>
             <h2 id="serve-title">Who we serve</h2>
-            <p>Different missions, the same need: people who can carry a plan from the boardroom to the front line.</p>
           </div>
           <a class="btn btn--tertiary" href="who-we-serve.html">Who we serve</a>
         </div>
         <div class="grid grid--3 reveal">
           <article class="sector">
-            <img src="assets/img/sector-government.webp" alt="Pennsylvania Avenue leading to the U.S. Capitol in Washington, D.C." width="1200" height="885" loading="lazy">
+            <img src="assets/img/arch-capitol.webp" alt="Pennsylvania Avenue leading to the U.S. Capitol in Washington, D.C." width="1600" height="1180" loading="lazy">
             <h3>Government &amp; public agencies</h3>
             <p>Communications, change management and leadership development for state agencies and public programs.</p>
           </article>
           <article class="sector">
-            <img src="assets/img/sector-business.webp" alt="Two colleagues review work together on a laptop in an open office" width="1200" height="800" loading="lazy">
+            <img src="assets/img/arch-glass-facade.webp" alt="The glass facade of an office building against a pale sky" width="1400" height="1336" loading="lazy">
             <h3>Businesses</h3>
             <p>Team engagement, process improvement and leadership training for small and midsize firms ready to grow.</p>
           </article>
           <article class="sector">
-            <img src="assets/img/sector-nonprofit.webp" alt="Volunteers in masks carry boxes of supplies at a community distribution site" width="1200" height="800" loading="lazy">
+            <img src="assets/img/arch-residential.webp" alt="A modern residential building with balconies seen from street level" width="1400" height="1867" loading="lazy">
             <h3>Nonprofits &amp; community organizations</h3>
             <p>Strategic communications, capacity building and mentoring programs that help mission-driven teams reach more people.</p>
           </article>
@@ -158,26 +142,26 @@
     </section>
 
     <section class="section theme-dark" aria-labelledby="gov-title">
-      <div class="container split split--top">
+      <div class="container split">
         <div>
           <span class="eyebrow">For public buyers</span>
           <h2 id="gov-title">Working with government?</h2>
-          <p class="lead" style="margin-top:var(--s-2)">Find our company identifiers, capabilities, past performance and the roles we can take on a contract — on one page.</p>
-          <div class="btn-row mt-4">
+          <p class="lead mt-4">Company identifiers, capabilities, past performance and the roles we can take on a contract — on one page.</p>
+          <div class="btn-row mt-6">
             <a class="btn btn--primary" href="government.html">Government contracting</a>
-            <span class="btn btn--secondary" role="link" aria-disabled="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg> Download capability statement <span class="tbd">[OVP: PDF]</span></span>
+            <span class="btn btn--secondary" role="link" aria-disabled="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg> Capability statement <span class="tbd">[OVP: PDF]</span></span>
           </div>
         </div>
         <div>
           <h3 class="visually-hidden">Company credentials</h3>
-          <ul class="chips" role="list">
-            <li class="chip"><b>UEI</b> <span class="tbd">[OVP: UEI]</span></li>
-            <li class="chip"><b>CAGE</b> <span class="tbd">[OVP: CAGE code]</span></li>
-            <li class="chip"><b>NAICS</b> <span class="tbd">[OVP: NAICS codes]</span></li>
-            <li class="chip"><b>Certifications</b> <span class="tbd">[OVP: business certifications]</span></li>
-            <li class="chip"><b>Contract vehicles</b> <span class="tbd">[OVP: GSA / state vehicles]</span></li>
-            <li class="chip"><b>ICF</b> ACC-credentialed coaching</li>
-          </ul>
+          <dl class="data-rows">
+            <div><dt>UEI</dt><dd><span class="tbd">[OVP: UEI]</span></dd></div>
+            <div><dt>CAGE code</dt><dd><span class="tbd">[OVP: CAGE code]</span></dd></div>
+            <div><dt>NAICS</dt><dd><span class="tbd">[OVP: NAICS codes]</span></dd></div>
+            <div><dt>Certifications</dt><dd><span class="tbd">[OVP: business certifications]</span></dd></div>
+            <div><dt>Contract vehicles</dt><dd><span class="tbd">[OVP: GSA / state vehicles]</span></dd></div>
+            <div><dt>Coaching</dt><dd>ICF ACC-credentialed</dd></div>
+          </dl>
         </div>
       </div>
     </section>
@@ -197,41 +181,38 @@
       </div>
     </section>
 
-    <section class="section theme-alt" aria-labelledby="team-title">
-      <div class="container">
-        <div class="section-head section-head--row">
-          <div>
-            <h2 id="team-title">Senior people on every engagement</h2>
-            <p>The people you meet in the first conversation are the people who do the work.</p>
-          </div>
-          <a class="btn btn--tertiary" href="about.html#team">Meet the team</a>
+    <section class="section theme-light" aria-labelledby="team-title">
+      <div class="container split">
+        <div>
+          <span class="eyebrow">Leadership</span>
+          <h2 id="team-title">Senior people on every engagement</h2>
+          <p class="lead mt-4">The people you meet in the first conversation are the people who do the work.</p>
+          <div class="mt-4"><a class="btn btn--tertiary" href="about.html#team">Meet the team</a></div>
         </div>
-        <div class="grid grid--3 reveal">
-          <article class="team-card team-card--clamp">
-          <img src="assets/img/team-alejandro.webp" alt="Portrait of Alejandro Bodipo-Memba" width="720" height="900" loading="lazy">
-          <h3>Alejandro Bodipo-Memba</h3>
-          <span class="team-role">CEO & Founder</span>
-          <p>Has led projects in strategic communications, executive leadership training, team building and management consulting across the U.S., Europe and Latin America.</p>
-        </article><article class="team-card team-card--clamp">
-          <img src="assets/img/team-ebony.webp" alt="Portrait of Ebony Tran" width="720" height="900" loading="lazy">
-          <h3>Ebony Tran</h3>
-          <span class="team-role">Chief of Staff & Operations</span>
-          <p>25 years of global experience and a former senior U.S. Foreign Service Officer; ICF-accredited coach.</p>
-        </article><article class="team-card team-card--clamp">
-          <img src="assets/img/team-al.webp" alt="Portrait of Al Pacha" width="720" height="900" loading="lazy">
-          <h3>Al Pacha</h3>
-          <span class="team-role">Director of Information Technology</span>
-          <p>25+ years developing IT solutions; architect of OVP’s proprietary assessment tools.</p>
-        </article>
-        </div>
+        <ul class="team-list" role="list"><li class="team-row">
+            <h3>Alejandro Bodipo-Memba</h3>
+            <span class="team-role">CEO & Founder</span>
+            <p>Has led projects in strategic communications, executive leadership training, team building and management consulting across the U.S., Europe and Latin America.</p>
+          </li><li class="team-row">
+            <h3>Ebony Tran</h3>
+            <span class="team-role">Chief of Staff & Operations</span>
+            <p>25 years of global experience and a former senior U.S. Foreign Service Officer; ICF-accredited coach.</p>
+          </li><li class="team-row">
+            <h3>Al Pacha</h3>
+            <span class="team-role">Director of Information Technology</span>
+            <p>25+ years developing IT solutions; architect of OVP’s proprietary assessment tools.</p>
+          </li></ul>
       </div>
     </section>
 
-    <section class="section theme-light" aria-labelledby="quotes-title">
-      <div class="container">
-        <h2 id="quotes-title" class="section-head">What clients say</h2>
-        <div class="grid grid--2 reveal">
-          <figure class="quote">
+    <section class="section theme-alt" aria-labelledby="quotes-title">
+      <div class="container split">
+        <div>
+          <span class="eyebrow">Clients</span>
+          <h2 id="quotes-title">What clients say</h2>
+        </div>
+        <div class="stack-lg reveal">
+          <figure class="quote quote--feature">
           <blockquote><p>“Alejandro and the team at OVP are seasoned veterans, and know how to create meaningful change, build trust, focus on strengths and help to improve employee engagement. They are true professionals and make real lasting impact on their clients.”</p></blockquote>
           <figcaption><strong>Darren Virassammy</strong>Co-founder & COO, 34 Strong Inc.</figcaption>
         </figure>
@@ -258,7 +239,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="brand-foot"><img src="assets/img/ovp-logo-white.png" alt="OVP Management Consulting" width="185" height="44" loading="lazy"></a>
-          <p>Next-level consulting for sustainable success — for public agencies, businesses and nonprofits.</p>
+          <p>Next-level consulting for sustainable success.</p>
         </div>
         <div>
           <h2>Services</h2>

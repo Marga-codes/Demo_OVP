@@ -38,7 +38,7 @@ def I(name, cls='icon'):
     return f'<svg class="{cls}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">{ICONS[name]}</svg>'
 
 def chip_icon(name, variant=''):
-    return f'<span class="icon-chip{variant}">{I(name)}</span>'
+    return ''
 
 def ext(href, text, cls=''):
     c = f' class="{cls}"' if cls else ''
@@ -91,13 +91,14 @@ TEAM = [
 
 def team_card(m, p, full=False):
     body = m['long'] if full else m['short']
-    cls = 'team-card' if full else 'team-card team-card--clamp'
-    return f'''<article class="{cls}">
-          <img src="{p}assets/img/{m['img']}" alt="Portrait of {m['name']}" width="720" height="900" loading="lazy">
-          <h3>{m['name']}</h3>
-          <span class="team-role">{m['role']}</span>
-          <p>{body}</p>
-        </article>'''
+    return f'''<li class="team-row">
+            <h3>{m['name']}</h3>
+            <span class="team-role">{m['role']}</span>
+            <p>{body}</p>
+          </li>'''
+
+def team_list(p, full=False):
+    return '<ul class="team-list" role="list">' + ''.join(team_card(m, p, full) for m in TEAM) + '</ul>'
 
 # ---------------------------------------------------------------- chrome
 NAV = [('services.html', 'Services'), ('who-we-serve.html', 'Who We Serve'), ('our-work.html', 'Our Work'),
@@ -138,7 +139,7 @@ def footer(p):
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="{p}index.html" class="brand-foot"><img src="{p}assets/img/ovp-logo-white.png" alt="OVP Management Consulting" width="185" height="44" loading="lazy"></a>
-          <p>Next-level consulting for sustainable success — for public agencies, businesses and nonprofits.</p>
+          <p>Next-level consulting for sustainable success.</p>
         </div>
         <div>
           <h2>Services</h2>
@@ -188,7 +189,7 @@ def page(path, title, desc, current, body, alt=False):
   <link rel="icon" href="{p}assets/img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,400&amp;display=swap">
   <link rel="stylesheet" href="{p}assets/css/ovp.css">
   <script src="{p}assets/js/ovp.js" defer></script>
 </head>
@@ -217,15 +218,12 @@ def cta(p, title, text, btn='Book a consultation', theme='theme-accent'):
     </section>'''
 
 def service_cards(p, items, heading='h3'):
-    out = []
-    for s in items:
-        out.append(f'''<article class="card card--service">
-          {chip_icon(s['icon'])}
-          <{heading}><a href="{p}services/{s['slug']}.html">{s['name']}</a></{heading}>
-          <p>{s['line']}</p>
-          <span class="btn btn--tertiary" aria-hidden="true">Explore</span>
-        </article>''')
-    return '\n        '.join(out)
+    rows = ''.join(f'''<li class="svc-row">
+            <{heading}><a href="{p}services/{s['slug']}.html">{s['name']}</a></{heading}>
+            <p>{s['line']}</p>
+            <span class="arrow" aria-hidden="true">→</span>
+          </li>''' for s in items)
+    return f'<ol class="svc-list reveal">{rows}</ol>'
 
 def breadcrumb(p, trail):
     lis = []
@@ -241,22 +239,16 @@ def client_list(names, cls='client-list'):
 
 # ---------------------------------------------------------------- HOME
 def home(p):
-    return f'''    <section class="hero theme-light" aria-labelledby="hero-title">
-      <div class="container split split--wide">
-        <div>
+    return f'''    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-bg" src="{p}assets/img/hero-washington.webp" alt="" width="1800" height="1198" fetchpriority="high">
+      <div class="container">
+        <div class="hero-inner">
           <span class="eyebrow">Management consulting for public agencies, businesses &amp; nonprofits</span>
           <h1 id="hero-title">Building on strengths to deliver lasting results.</h1>
           <p class="lead">OVP helps organizations turn strategy into execution — by building on what their people already do best.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="{p}contact.html">Book a consultation</a>
-            <a class="btn btn--secondary" href="{p}our-work.html">See our work</a>
-          </div>
-        </div>
-        <div class="hero-media">
-          <img src="{p}assets/img/hero-facilitation.webp" alt="A facilitator leads a planning workshop while colleagues around a table add ideas to a wall of sticky notes" width="1600" height="1067" fetchpriority="high">
-          <div class="hero-note">
-            <span class="eyebrow">Featured engagement</span>
-            <p><strong>Delaware Department of Labor</strong>Strategic communications and change support for a state agency, over four years.</p>
+            <a class="btn btn--tertiary" href="{p}our-work.html">See our work</a>
           </div>
         </div>
       </div>
@@ -269,22 +261,19 @@ def home(p):
       </div>
     </section>
 
-    <section class="section theme-alt" aria-labelledby="help-title">
-      <div class="container">
-        <div class="section-head section-head--row">
-          <div>
-            <h2 id="help-title">How we help</h2>
-            <p>Four practice areas, one approach: start from what your people already do well, then build the plan, processes and messages around it.</p>
-          </div>
-          <a class="btn btn--tertiary" href="{p}services.html">All services</a>
+    <section class="section theme-light" aria-labelledby="help-title">
+      <div class="container split">
+        <div>
+          <span class="eyebrow">Services</span>
+          <h2 id="help-title">How we help</h2>
+          <p class="lead mt-4">Four practice areas, one approach: start from what your people already do well, then build the plan, processes and messages around it.</p>
+          <div class="mt-4"><a class="btn btn--tertiary" href="{p}services.html">All services</a></div>
         </div>
-        <div class="grid grid--4 reveal">
         {service_cards(p, SERVICES)}
-        </div>
       </div>
     </section>
 
-    <section class="section theme-light" aria-labelledby="numbers-title">
+    <section class="section theme-light" aria-labelledby="numbers-title" style="padding-top:0">
       <div class="container">
         <h2 id="numbers-title" class="visually-hidden">OVP at a glance</h2>
         <div class="stats reveal">
@@ -296,46 +285,46 @@ def home(p):
       </div>
     </section>
 
-    <section class="section theme-light" aria-labelledby="case-title" style="padding-top:0">
+    <section class="section theme-alt" aria-labelledby="case-title">
       <div class="container split">
-        <figure class="media-frame">
-          <img src="{p}assets/img/case-dol-briefing.webp" alt="Delaware Secretary of Labor Karryl Hubbard speaks at a podium during a press conference, with a sign-language interpreter beside her" width="690" height="736" loading="lazy">
-        </figure>
         <div>
           <span class="eyebrow">Case study · Government</span>
           <h2 id="case-title">Delaware Department of Labor</h2>
+          <div class="mt-4"><a class="btn btn--tertiary" href="{p}our-work/case-study.html">Read the case study</a></div>
+        </div>
+        <div>
+          <figure class="media-frame"><img src="{p}assets/img/arch-chamber.webp" alt="An empty legislative chamber with rows of desks facing the speaker’s chair" width="1600" height="820" loading="lazy"></figure>
           <dl class="case-steps">
             <div><dt>Challenge</dt><dd>New agency leadership needed to explain fast-moving pandemic changes to staff and the public — without a change plan or a unified communications strategy.</dd></div>
             <div><dt>What we did</dt><dd>Ran a needs assessment, centralized communications, set measurement criteria, led town halls and media, and built a communications charter.</dd></div>
             <div><dt>Result</dt><dd>Documented gains over four years in online engagement, media interviews and leadership visibility. The “Did You Know…?” campaign became one of the department’s best-recognized efforts.</dd></div>
           </dl>
-          <a class="btn btn--tertiary" href="{p}our-work/case-study.html">Read the case study</a>
         </div>
       </div>
     </section>
 
-    <section class="section theme-alt" aria-labelledby="serve-title">
+    <section class="section theme-light" aria-labelledby="serve-title">
       <div class="container">
         <div class="section-head section-head--row">
           <div>
+            <span class="eyebrow">Sectors</span>
             <h2 id="serve-title">Who we serve</h2>
-            <p>Different missions, the same need: people who can carry a plan from the boardroom to the front line.</p>
           </div>
           <a class="btn btn--tertiary" href="{p}who-we-serve.html">Who we serve</a>
         </div>
         <div class="grid grid--3 reveal">
           <article class="sector">
-            <img src="{p}assets/img/sector-government.webp" alt="Pennsylvania Avenue leading to the U.S. Capitol in Washington, D.C." width="1200" height="885" loading="lazy">
+            <img src="{p}assets/img/arch-capitol.webp" alt="Pennsylvania Avenue leading to the U.S. Capitol in Washington, D.C." width="1600" height="1180" loading="lazy">
             <h3>Government &amp; public agencies</h3>
             <p>Communications, change management and leadership development for state agencies and public programs.</p>
           </article>
           <article class="sector">
-            <img src="{p}assets/img/sector-business.webp" alt="Two colleagues review work together on a laptop in an open office" width="1200" height="800" loading="lazy">
+            <img src="{p}assets/img/arch-glass-facade.webp" alt="The glass facade of an office building against a pale sky" width="1400" height="1336" loading="lazy">
             <h3>Businesses</h3>
             <p>Team engagement, process improvement and leadership training for small and midsize firms ready to grow.</p>
           </article>
           <article class="sector">
-            <img src="{p}assets/img/sector-nonprofit.webp" alt="Volunteers in masks carry boxes of supplies at a community distribution site" width="1200" height="800" loading="lazy">
+            <img src="{p}assets/img/arch-residential.webp" alt="A modern residential building with balconies seen from street level" width="1400" height="1867" loading="lazy">
             <h3>Nonprofits &amp; community organizations</h3>
             <p>Strategic communications, capacity building and mentoring programs that help mission-driven teams reach more people.</p>
           </article>
@@ -344,26 +333,26 @@ def home(p):
     </section>
 
     <section class="section theme-dark" aria-labelledby="gov-title">
-      <div class="container split split--top">
+      <div class="container split">
         <div>
           <span class="eyebrow">For public buyers</span>
           <h2 id="gov-title">Working with government?</h2>
-          <p class="lead" style="margin-top:var(--s-2)">Find our company identifiers, capabilities, past performance and the roles we can take on a contract — on one page.</p>
-          <div class="btn-row mt-4">
+          <p class="lead mt-4">Company identifiers, capabilities, past performance and the roles we can take on a contract — on one page.</p>
+          <div class="btn-row mt-6">
             <a class="btn btn--primary" href="{p}government.html">Government contracting</a>
-            <span class="btn btn--secondary" role="link" aria-disabled="true">{I('download')} Download capability statement {T('PDF')}</span>
+            <span class="btn btn--secondary" role="link" aria-disabled="true">{I('download')} Capability statement {T('PDF')}</span>
           </div>
         </div>
         <div>
           <h3 class="visually-hidden">Company credentials</h3>
-          <ul class="chips" role="list">
-            <li class="chip"><b>UEI</b> {T('UEI')}</li>
-            <li class="chip"><b>CAGE</b> {T('CAGE code')}</li>
-            <li class="chip"><b>NAICS</b> {T('NAICS codes')}</li>
-            <li class="chip"><b>Certifications</b> {T('business certifications')}</li>
-            <li class="chip"><b>Contract vehicles</b> {T('GSA / state vehicles')}</li>
-            <li class="chip"><b>ICF</b> ACC-credentialed coaching</li>
-          </ul>
+          <dl class="data-rows">
+            <div><dt>UEI</dt><dd>{T('UEI')}</dd></div>
+            <div><dt>CAGE code</dt><dd>{T('CAGE code')}</dd></div>
+            <div><dt>NAICS</dt><dd>{T('NAICS codes')}</dd></div>
+            <div><dt>Certifications</dt><dd>{T('business certifications')}</dd></div>
+            <div><dt>Contract vehicles</dt><dd>{T('GSA / state vehicles')}</dd></div>
+            <div><dt>Coaching</dt><dd>ICF ACC-credentialed</dd></div>
+          </dl>
         </div>
       </div>
     </section>
@@ -383,26 +372,26 @@ def home(p):
       </div>
     </section>
 
-    <section class="section theme-alt" aria-labelledby="team-title">
-      <div class="container">
-        <div class="section-head section-head--row">
-          <div>
-            <h2 id="team-title">Senior people on every engagement</h2>
-            <p>The people you meet in the first conversation are the people who do the work.</p>
-          </div>
-          <a class="btn btn--tertiary" href="{p}about.html#team">Meet the team</a>
+    <section class="section theme-light" aria-labelledby="team-title">
+      <div class="container split">
+        <div>
+          <span class="eyebrow">Leadership</span>
+          <h2 id="team-title">Senior people on every engagement</h2>
+          <p class="lead mt-4">The people you meet in the first conversation are the people who do the work.</p>
+          <div class="mt-4"><a class="btn btn--tertiary" href="{p}about.html#team">Meet the team</a></div>
         </div>
-        <div class="grid grid--3 reveal">
-          {''.join(team_card(m, p) for m in TEAM)}
-        </div>
+        {team_list(p)}
       </div>
     </section>
 
-    <section class="section theme-light" aria-labelledby="quotes-title">
-      <div class="container">
-        <h2 id="quotes-title" class="section-head">What clients say</h2>
-        <div class="grid grid--2 reveal">
-          {quote('darren')}
+    <section class="section theme-alt" aria-labelledby="quotes-title">
+      <div class="container split">
+        <div>
+          <span class="eyebrow">Clients</span>
+          <h2 id="quotes-title">What clients say</h2>
+        </div>
+        <div class="stack-lg reveal">
+          {quote('darren', 'quote quote--feature')}
           {quote('robert')}
         </div>
       </div>
@@ -413,8 +402,8 @@ def home(p):
 # ---------------------------------------------------------------- SERVICE PAGES
 SVC_DETAIL = {
  'strategy-execution': dict(
-   img='svc-strategy.webp', w=1200, h=900,
-   alt='A small team reviews a planning board covered in notes during a working session',
+   img='arch-boardroom.webp', w=1400, h=1120,
+   alt='An empty boardroom with a long table and chairs beside floor-to-ceiling windows',
    intro='Plans fail in the gap between the leadership retreat and the work of every day. We help you close that gap — with clear priorities, owners and measures your people help shape.',
    challenge=('Your strategy exists. Getting it done is the hard part.',
      ['Priorities compete for the same people and budget. Ownership is unclear once the plan leaves the leadership team. Progress is reported late, if at all — so by the time a project drifts, it is expensive to fix.',
@@ -438,8 +427,8 @@ SVC_DETAIL = {
         ('How long does a strategy engagement take?', f'It depends on scope. Typical engagements run {T("typical engagement length")}.'),
         ('Do you work with public agencies?', 'Yes. Our clients include the Delaware Department of Labor and the California Department of Public Health. See our <a href="../government.html">government contracting</a> page for company details.')]),
  'organizational-performance': dict(
-   img='svc-performance.webp', w=1200, h=800,
-   alt='Colleagues around a meeting table review plans next to a wall of sticky notes',
+   img='arch-corridor.webp', w=1400, h=935,
+   alt='A long, empty office corridor lined with glass partitions',
    intro='When work slows down, the cause is rarely one person or one tool. We diagnose how work actually flows, then design processes your team can sustain long after we leave.',
    challenge=('Everyone is busy. Results still lag.',
      ['Handoffs break down, work gets duplicated and nobody can say exactly where time goes. Quick fixes add steps instead of removing them.',
@@ -463,8 +452,8 @@ SVC_DETAIL = {
         ('Will this disrupt day-to-day work?', 'We design sessions around your schedule and involve the people who do the work, so changes are practical from day one.'),
         ('Do you use a specific methodology?', 'We draw on Continuous Improvement (Kaizen) process design and structured problem-solving, adapted to your organization’s size and sector.')]),
  'leadership-change': dict(
-   img='svc-leadership.webp', w=1200, h=800,
-   alt='A group of colleagues sits in a circle in a bright room, listening to one another during a workshop',
+   img='arch-towers-fog.webp', w=1400, h=933,
+   alt='Glass office towers seen from below, rising into fog',
    intro='Change asks more of leaders and teams than any plan admits. We help people understand their strengths, lead through uncertainty and build a culture that keeps improving.',
    challenge=('Change stalls when people are left behind.',
      ['New structures, new leaders and new ways of working can leave teams unsure of their role. Engagement drops just when you need it most.',
@@ -488,8 +477,8 @@ SVC_DETAIL = {
         ('Can programs be delivered virtually?', 'Yes. Programs can combine virtual workshops, in-person sessions and one-on-one coaching.'),
         ('Are your coaches credentialed?', 'Our Chief of Staff & Operations is an International Coaching Federation (ICF) ACC-credentialed coach.')]),
  'strategic-communication': dict(
-   img='svc-communication.webp', w=1200, h=800,
-   alt='A speaker presents to a room of seated colleagues in a conference room',
+   img='arch-towers-dark.webp', w=1400, h=933,
+   alt='Dark glass skyscrapers seen from street level',
    intro='Set the right tone and increase positive engagement with customers and collaborators alike. Our strategic communications work generates measurable results, while broadening your team’s impact.',
    challenge=('The message is right. It is not reaching people.',
      ['Internal and external communications pull in different directions. Staff hear about changes late. The public, media and partners get a partial picture — and trust suffers.',
@@ -517,7 +506,7 @@ SVC_DETAIL = {
 def service_page(s):
     d = SVC_DETAIL[s['slug']]
     def body(p):
-        deliver = ''.join(f'''<li>{chip_icon(ic)}<div><h3>{t}</h3><p>{tx}</p></div></li>''' for ic, t, tx in d['deliver'])
+        deliver = ''.join(f'''<li><h3>{t}</h3><p>{tx}</p></li>''' for ic, t, tx in d['deliver'])
         steps = ''.join(f'<li class="step"><h3>{t}</h3><p>{tx}</p></li>' for t, tx in d['steps'])
         stats = ''.join(f'<div class="stat"><span class="stat-value">{T(v)}</span><span class="stat-label">{l}</span></div>' for v, l in d['results'])
         faq = ''.join(f'<details><summary>{q}</summary><div><p>{a}</p></div></details>' for q, a in d['faq'])
@@ -528,7 +517,7 @@ def service_page(s):
         return f'''    <section class="page-hero theme-alt" aria-labelledby="page-title">
       <div class="container">
         {breadcrumb(p, [('index.html', 'Home'), ('services.html', 'Services'), ('', s['name'])])}
-        <div class="split">
+        <div class="split split--even split--center">
           <div>
             <h1 id="page-title">{s['name']}</h1>
             <p class="lead">{d['intro']}</p>
@@ -594,9 +583,7 @@ def service_page(s):
     <section class="section theme-light" aria-labelledby="other-title">
       <div class="container">
         <div class="section-head"><h2 id="other-title">Other services</h2></div>
-        <div class="grid grid--3">
         {service_cards(p, others)}
-        </div>
       </div>
     </section>
 
@@ -605,31 +592,20 @@ def service_page(s):
 
 # ---------------------------------------------------------------- SERVICES OVERVIEW
 def services_page(p):
-    cards = []
-    for s in SERVICES:
-        d = SVC_DETAIL[s['slug']]
-        cards.append(f'''<article class="card card--service card--large">
-          <img src="{p}assets/img/{d['img']}" alt="" width="{d['w']}" height="{d['h']}" loading="lazy">
-          <div class="card-body">
-            {chip_icon(s['icon'])}
-            <h2 style="font-size:var(--fs-xl)"><a href="{p}services/{s['slug']}.html">{s['name']}</a></h2>
-            <p>{s['line']}</p>
-            <span class="btn btn--tertiary" aria-hidden="true">Explore {s['name']}</span>
-          </div>
-        </article>''')
-    return f'''    <section class="page-hero theme-alt" aria-labelledby="page-title">
+    return f'''    <section class="page-hero theme-light" aria-labelledby="page-title">
       <div class="container">
         {breadcrumb(p, [('index.html', 'Home'), ('', 'Services')])}
-        <h1 id="page-title">Services</h1>
-        <p class="lead">Four practice areas that work on their own or together — each grounded in a strengths-based approach and measured against goals we agree with you up front.</p>
+        <div class="split">
+          <h1 id="page-title">Services</h1>
+          <p class="lead">Four practice areas that work on their own or together — each grounded in a strengths-based approach and measured against goals we agree with you up front.</p>
+        </div>
       </div>
     </section>
 
     <section class="section theme-light" aria-label="Service areas">
-      <div class="container">
-        <div class="grid grid--2">
-        {''.join(cards)}
-        </div>
+      <div class="container split">
+        <figure class="media-frame"><img src="{p}assets/img/arch-office-glass.webp" alt="An empty open-plan office with glass-walled meeting rooms" width="1600" height="1068" loading="lazy"></figure>
+        {service_cards(p, SERVICES, 'h2')}
       </div>
     </section>
 
@@ -638,15 +614,15 @@ def services_page(p):
 # ---------------------------------------------------------------- WHO WE SERVE
 def who_page(p):
     blocks = [
-     ('government', 'Government &amp; public agencies', 'sector-government.webp', 885, 'Pennsylvania Avenue leading to the U.S. Capitol in Washington, D.C.',
+     ('government', 'Government &amp; public agencies', 'arch-capitol.webp', 1180, 'Pennsylvania Avenue leading to the U.S. Capitol in Washington, D.C.',
       'Public agencies face pressure to communicate clearly, adapt quickly and develop leaders — often with lean teams. We have supported state agencies with communications, change management and leadership programs.',
       ['strategic-communication', 'leadership-change', 'strategy-execution'],
       ['Delaware Department of Labor', 'California Department of Public Health', 'CalPERS (with 34 Strong)']),
-     ('business', 'Businesses', 'sector-business.webp', 800, 'Two colleagues review work together on a laptop in an open office',
+     ('business', 'Businesses', 'arch-glass-facade.webp', 1336, 'The glass facade of an office building against a pale sky',
       'Small and midsize firms need teams that work well together, processes that scale and the readiness to pursue larger contracts. We help them build all three.',
       ['organizational-performance', 'leadership-change', 'strategy-execution'],
       ['American Licorice Company', 'Riveredge Hospital', '7 Mindsets', '34 Strong']),
-     ('nonprofit', 'Nonprofits &amp; community organizations', 'sector-nonprofit.webp', 800, 'Volunteers in masks carry boxes of supplies at a community distribution site',
+     ('nonprofit', 'Nonprofits &amp; community organizations', 'arch-residential.webp', 1867, 'A modern residential building with balconies seen from street level',
       'Mission-driven organizations need to tell their story to communities, media and donors, and to build capacity without burning out their people.',
       ['strategic-communication', 'organizational-performance', 'leadership-change'],
       ['Illinois Action for Children', 'PASO West Suburban Action Project', 'National Coalition of 100 Black Women – Delaware Chapter', 'Mas Que Salud']),
@@ -657,7 +633,7 @@ def who_page(p):
         svc_links = ''.join(f'<li><a href="{p}services/{s["slug"]}.html">{s["name"]}</a></li>' for s in SERVICES if s['slug'] in svcs)
         out.append(f'''    <section class="section {theme}" id="{anchor}" aria-labelledby="{anchor}-title">
       <div class="container split split--top">
-        <figure class="media-frame"><img src="{p}assets/img/{img}" alt="{alt}" width="1200" height="{h}" loading="lazy"></figure>
+        <figure class="media-frame"><img src="{p}assets/img/{img}" alt="{alt}" width="1400" height="{h}" loading="lazy"></figure>
         <div class="stack-lg">
           <div><h2 id="{anchor}-title">{title}</h2><p class="lead mt-4">{text}</p></div>
           <div><h3>Relevant services</h3><ul class="link-list mt-4">{svc_links}</ul></div>
@@ -686,9 +662,9 @@ def gov_page(p):
             ('NAICS codes', T('NAICS codes')), ('Business certifications', T('small / minority business certifications')),
             ('Contract vehicles', T('GSA schedule or state vehicles')), ('Contracting contact', T('name, email, phone'))]
     table = ''.join(f'<tr><th scope="row">{a}</th><td>{b}</td></tr>' for a, b in rows)
-    pillars = ''.join(f'<article class="card card--service">{chip_icon(s["icon"])}<h3><a href="{p}services/{s["slug"]}.html">{s["name"]}</a></h3><p>{s["line"]}</p><span class="btn btn--tertiary" aria-hidden="true">Explore</span></article>' for s in SERVICES)
+    pillars = service_cards(p, SERVICES)
     return f'''    <section class="page-hero theme-alt" aria-labelledby="page-title">
-      <div class="container split split--top">
+      <div class="container split split--even">
         <div>
           {breadcrumb(p, [('index.html', 'Home'), ('', 'Government Contracting')])}
           <h1 id="page-title">Government contracting</h1>
@@ -723,7 +699,7 @@ def gov_page(p):
     <section class="section theme-alt" id="capabilities" aria-labelledby="q2">
       <div class="container">
         <div class="section-head"><span class="q-label"><b>2</b>Capabilities</span><h2 id="q2">What does OVP do?</h2></div>
-        <div class="grid grid--4">{pillars}</div>
+        {pillars}
       </div>
     </section>
 
@@ -740,8 +716,8 @@ def gov_page(p):
           </ul>
         </div>
         <article class="card">
-          <img src="{p}assets/img/case-dol-briefing.webp" alt="Delaware Secretary of Labor Karryl Hubbard speaks at a podium during a press conference" width="690" height="736" loading="lazy" style="border-radius:6px;aspect-ratio:3/2;object-fit:cover">
-          <span class="eyebrow mt-4" style="margin-bottom:0">Case study</span>
+          <img src="{p}assets/img/arch-chamber.webp" alt="" width="1600" height="820" loading="lazy" style="aspect-ratio:16/9;object-fit:cover">
+          <span class="tag">Case study</span>
           <h3><a href="{p}our-work/case-study.html">Delaware Department of Labor: communications and change during the pandemic</a></h3>
           <p>Centralized communications, staff surveys, town halls and media relations, with documented improvement over four years.</p>
           <span class="btn btn--tertiary" aria-hidden="true">Read the case study</span>
@@ -807,7 +783,7 @@ def work_page(p):
         seen.add(key)
         html_ = card(c).replace('<article class="', f'<article{anchor} class="case-card ', 1)
         if i == 0:
-            html_ = html_.replace('<article id="government" class="case-card card card--service">', f'<article id="government" class="case-card card card--service card--feature"><img src="{p}assets/img/case-dol-briefing.webp" alt="" width="690" height="736" loading="lazy"><div class="card-body">', 1).replace('</article>', '</div></article>')
+            html_ = html_.replace('<article id="government" class="case-card card card--service">', f'<article id="government" class="case-card card card--service card--feature"><img src="{p}assets/img/arch-chamber.webp" alt="" width="1600" height="820" loading="lazy"><div class="card-body">', 1).replace('</article>', '</div></article>')
             html_ = html_.replace('class="case-card card card--service card--feature"', 'class="case-card card card--service card--feature span-8"')
         elif i == 1:
             html_ = html_.replace('class="case-card card"', 'class="case-card card span-4"', 1)
@@ -838,7 +814,7 @@ def case_page(p):
     return f'''    <section class="page-hero theme-alt" aria-labelledby="page-title">
       <div class="container">
         {breadcrumb(p, [('index.html', 'Home'), ('our-work.html', 'Our Work'), ('', 'Delaware Department of Labor')])}
-        <div class="split">
+        <div class="split split--even split--center">
           <div>
             <span class="eyebrow">Case study · Government</span>
             <h1 id="page-title">Delaware Department of Labor</h1>
@@ -849,7 +825,7 @@ def case_page(p):
               <li class="chip"><b>Start</b> 2020</li>
             </ul>
           </div>
-          <figure class="page-hero-media"><img src="{p}assets/img/case-dol-briefing.webp" alt="Delaware Secretary of Labor Karryl Hubbard speaks at a podium during a press conference, with a sign-language interpreter beside her" width="690" height="736" fetchpriority="high"></figure>
+          <figure class="page-hero-media"><img src="{p}assets/img/arch-chamber.webp" alt="An empty legislative chamber with rows of desks facing the speaker’s chair" width="1600" height="820" fetchpriority="high"></figure>
         </div>
       </div>
     </section>
@@ -877,12 +853,12 @@ def case_page(p):
       <div class="container">
         <div class="section-head"><span class="eyebrow">03 · Approach</span><h2 id="c3">New protocols for how the department communicates</h2></div>
         <ul class="deliverables" role="list">
-          <li>{chip_icon('cycle')}<div><h3>Weekly strategy meetings</h3><p>Established weekly strategic communications meetings.</p></div></li>
-          <li>{chip_icon('clipboard')}<div><h3>Organization-wide surveys</h3><p>Surveyed staff to understand the current state of communications.</p></div></li>
-          <li>{chip_icon('chart')}<div><h3>Measurement criteria</h3><p>Set criteria for digital and social media communications.</p></div></li>
-          <li>{chip_icon('file')}<div><h3>Charter and planning templates</h3><p>A communications charter with mission, vision and values, plus planning documents for specific projects.</p></div></li>
-          <li>{chip_icon('users')}<div><h3>Town halls and media</h3><p>Led internal town hall meetings and all external media opportunities.</p></div></li>
-          <li>{chip_icon('video')}<div><h3>Six-part TV series</h3><p>Developed a series for local cable access showcasing the department’s reach across Delaware.</p></div></li>
+          <li><h3>Weekly strategy meetings</h3><p>Established weekly strategic communications meetings.</p></li>
+          <li><h3>Organization-wide surveys</h3><p>Surveyed staff to understand the current state of communications.</p></li>
+          <li><h3>Measurement criteria</h3><p>Set criteria for digital and social media communications.</p></li>
+          <li><h3>Charter and planning templates</h3><p>A communications charter with mission, vision and values, plus planning documents for specific projects.</p></li>
+          <li><h3>Town halls and media</h3><p>Led internal town hall meetings and all external media opportunities.</p></li>
+          <li><h3>Six-part TV series</h3><p>Developed a series for local cable access showcasing the department’s reach across Delaware.</p></li>
         </ul>
       </div>
     </section>
@@ -956,13 +932,13 @@ def insights_page(p):
 # ---------------------------------------------------------------- ABOUT
 def about_page(p):
     return f'''    <section class="page-hero theme-alt" aria-labelledby="page-title">
-      <div class="container split">
+      <div class="container split split--even split--center">
         <div>
           {breadcrumb(p, [('index.html', 'Home'), ('', 'About')])}
           <h1 id="page-title">Next-level consulting for sustainable success</h1>
           <p class="lead">OVP Management Consulting Group is a strengths-based consulting firm. We help organizations strengthen team dynamics, build sustainable operations and reach their goals.</p>
         </div>
-        <figure class="page-hero-media"><img src="{p}assets/img/ovp-workshop.webp" alt="Participants work in small groups around tables during an OVP workshop, with flip-chart notes on the walls" width="1400" height="934" fetchpriority="high"></figure>
+        <figure class="page-hero-media"><img src="{p}assets/img/arch-office-glass.webp" alt="An empty open-plan office with glass-walled meeting rooms" width="1600" height="1068" fetchpriority="high"></figure>
       </div>
     </section>
 
@@ -1003,8 +979,10 @@ def about_page(p):
 
     <section class="section theme-alt" id="team" aria-labelledby="team-title">
       <div class="container">
-        <div class="section-head"><span class="eyebrow">Leadership team</span><h2 id="team-title">The people behind the work</h2></div>
-        <div class="grid grid--3">{''.join(team_card(m, p, True) for m in TEAM)}</div>
+        <div class="split">
+          <div><span class="eyebrow">Leadership team</span><h2 id="team-title">The people behind the work</h2></div>
+          {team_list(p, True)}
+        </div>
       </div>
     </section>
 
@@ -1046,7 +1024,7 @@ def contact_page(p):
     </section>
 
     <section class="section theme-light" aria-label="Contact options">
-      <div class="container split split--top">
+      <div class="container split split--even">
         <div>
           <h2 style="font-size:var(--fs-xl);margin-bottom:var(--s-4)">Send us a message</h2>
           <form class="form" data-local novalidate>
@@ -1075,8 +1053,7 @@ def contact_page(p):
         </div>
         <aside class="stack-lg" aria-label="Book a consultation">
           <div class="booking">
-            <div>{chip_icon('calendar')}</div>
-            <h2>Book a 30-minute consultation</h2>
+                        <h2>Book a 30-minute consultation</h2>
             <p class="muted">Pick a time that works for you. You’ll get a calendar invitation and a short questionnaire.</p>
             <div class="cal" role="img" aria-label="Scheduling calendar showing available days in October 2026">
               <div class="cal-head"><span class="cal-label">Scheduling calendar</span><span>October 2026</span></div>
@@ -1085,9 +1062,9 @@ def contact_page(p):
             </div>
           </div>
           <ul class="contact-list" role="list">
-            <li>{I('mail')}<span>{T('email')}</span></li>
-            <li>{I('phone')}<span>{T('phone')}</span></li>
-            <li>{I('pin')}<span>{T('address')}</span></li>
+            <li><b>Email</b><span>{T('email')}</span></li>
+            <li><b>Phone</b><span>{T('phone')}</span></li>
+            <li><b>Address</b><span>{T('address')}</span></li>
           </ul>
         </aside>
       </div>

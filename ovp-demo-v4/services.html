@@ -9,7 +9,7 @@
   <link rel="icon" href="assets/img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,400&amp;display=swap">
   <link rel="stylesheet" href="assets/css/ovp.css">
   <script src="assets/js/ovp.js" defer></script>
 </head>
@@ -32,51 +32,36 @@
     </div>
   </header>
   <main id="main" tabindex="-1">
-    <section class="page-hero theme-alt" aria-labelledby="page-title">
+    <section class="page-hero theme-light" aria-labelledby="page-title">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><span aria-current="page">Services</span></li></ol></nav>
-        <h1 id="page-title">Services</h1>
-        <p class="lead">Four practice areas that work on their own or together — each grounded in a strengths-based approach and measured against goals we agree with you up front.</p>
+        <div class="split">
+          <h1 id="page-title">Services</h1>
+          <p class="lead">Four practice areas that work on their own or together — each grounded in a strengths-based approach and measured against goals we agree with you up front.</p>
+        </div>
       </div>
     </section>
 
     <section class="section theme-light" aria-label="Service areas">
-      <div class="container">
-        <div class="grid grid--2">
-        <article class="card card--service card--large">
-          <img src="assets/img/svc-strategy.webp" alt="" width="1200" height="900" loading="lazy">
-          <div class="card-body">
-            <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-            <h2 style="font-size:var(--fs-xl)"><a href="services/strategy-execution.html">Strategy & Execution</a></h2>
+      <div class="container split">
+        <figure class="media-frame"><img src="assets/img/arch-office-glass.webp" alt="An empty open-plan office with glass-walled meeting rooms" width="1600" height="1068" loading="lazy"></figure>
+        <ol class="svc-list reveal"><li class="svc-row">
+            <h2><a href="services/strategy-execution.html">Strategy & Execution</a></h2>
             <p>Turn strategy into plans your people actually adopt — and results you can measure.</p>
-            <span class="btn btn--tertiary" aria-hidden="true">Explore Strategy & Execution</span>
-          </div>
-        </article><article class="card card--service card--large">
-          <img src="assets/img/svc-performance.webp" alt="" width="1200" height="800" loading="lazy">
-          <div class="card-body">
-            <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>
-            <h2 style="font-size:var(--fs-xl)"><a href="services/organizational-performance.html">Organizational Performance</a></h2>
+            <span class="arrow" aria-hidden="true">→</span>
+          </li><li class="svc-row">
+            <h2><a href="services/organizational-performance.html">Organizational Performance</a></h2>
             <p>Diagnose what's slowing you down and design processes built to last.</p>
-            <span class="btn btn--tertiary" aria-hidden="true">Explore Organizational Performance</span>
-          </div>
-        </article><article class="card card--service card--large">
-          <img src="assets/img/svc-leadership.webp" alt="" width="1200" height="800" loading="lazy">
-          <div class="card-body">
-            <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-            <h2 style="font-size:var(--fs-xl)"><a href="services/leadership-change.html">Leadership & Change</a></h2>
+            <span class="arrow" aria-hidden="true">→</span>
+          </li><li class="svc-row">
+            <h2><a href="services/leadership-change.html">Leadership & Change</a></h2>
             <p>Build leaders and teams that grow from their strengths through every change.</p>
-            <span class="btn btn--tertiary" aria-hidden="true">Explore Leadership & Change</span>
-          </div>
-        </article><article class="card card--service card--large">
-          <img src="assets/img/svc-communication.webp" alt="" width="1200" height="800" loading="lazy">
-          <div class="card-body">
-            <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
-            <h2 style="font-size:var(--fs-xl)"><a href="services/strategic-communication.html">Strategic Communication</a></h2>
+            <span class="arrow" aria-hidden="true">→</span>
+          </li><li class="svc-row">
+            <h2><a href="services/strategic-communication.html">Strategic Communication</a></h2>
             <p>Set the right tone with every audience and turn messages into measurable engagement.</p>
-            <span class="btn btn--tertiary" aria-hidden="true">Explore Strategic Communication</span>
-          </div>
-        </article>
-        </div>
+            <span class="arrow" aria-hidden="true">→</span>
+          </li></ol>
       </div>
     </section>
 
@@ -95,7 +80,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="brand-foot"><img src="assets/img/ovp-logo-white.png" alt="OVP Management Consulting" width="185" height="44" loading="lazy"></a>
-          <p>Next-level consulting for sustainable success — for public agencies, businesses and nonprofits.</p>
+          <p>Next-level consulting for sustainable success.</p>
         </div>
         <div>
           <h2>Services</h2>
