@@ -1,0 +1,11 @@
+# Client documents: keep local, never publish
+reference/
+brand/*.pdf
+
+# Internal docs: keep local, never publish
+SPEC.md
+CREDITS.md
+SQUARESPACE-MAP.md
+
+# Review screenshots: local only
+review/
